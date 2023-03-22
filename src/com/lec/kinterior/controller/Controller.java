@@ -23,8 +23,8 @@ public class Controller extends HttpServlet {
 		String command = uri.substring(conPath.length());
 		String viewPage = null;
 		Service service = null;
-		if(command.equals("")) {
-			
+		if(command.equals("/main.do")) {
+			viewPage = "main/main.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+*{margin:0; padding:0;box-sizing:border-box;}
+li{list-style:none;}
+a{text-decoration:none; color:black; display:block;}
+#header{
+	width:100%;
+	position:fixed;
+	overflow:hidden;
+	background:#fff;
+	padding:10px 20px;
+}
+#header .logo{
+	float:left;
+}
+#header .logo img{
+	height:90px;
+}
+#header .header_nav{
+	min-width:900px;
+	height:90px;
+	line-height:90px;
+}
+#header .header_nav .gnb ul li{
+	float:left;
+	width:20%;
+	text-align:center;
+}
+#header .header_nav .side a{
+	float:left;
+}
