@@ -25,7 +25,7 @@ public class AdminDao {
 		}
 	}
 	// 1. 관리자 로그인
-	public int adminLogin(String aid, String apw) {
+	public int adminLoginChk(String aid, String apw) {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -39,8 +39,6 @@ public class AdminDao {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				result = SUCCESS;
-			}else {
-				result = FAIL;
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -56,7 +54,7 @@ public class AdminDao {
 		return result;
 	}
 	// 2. 관리자 aid로 dto 가져오기 (로그인 후 session에 넣을 용도)
-	public AdminDto getAdminDto(String aid) {
+	public AdminDto getAdmin(String aid) {
 		AdminDto admin = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
