@@ -1,1 +1,10 @@
 @charset "UTF-8";
+*{margin:0; padding:0;box-sizing:border-box;font-family: 'Noto Serif KR', serif;}
+#footer{border-top:1px solid #ccc;width:100%;font-size:15px;}
+#footer .footer-in{padding:10px 80px 60px; cursor:pointer;margin:0 auto;position:relative;min-width:1300px;max-width:1700px;}
+#footer .footer-left{display:inline-block;margin:10px 0 20px 0;}
+#footer .footer-in .footer-content{margin-bottom:10px;}
+#footer .footer-in .footer-content p {margin-bottom:10px;}
+#footer .footer-in .footer-content span{padding-top:10px;margin-right:10px;}
+#footer .footer-in .footer-content .admin a{display:inline-block;text-decoration: none; color: #000}
+#footer .footer-right{position:absolute;top:10px; right:50px;}

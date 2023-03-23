@@ -1,0 +1,7 @@
+@charset "UTF-8";
+*{margin:0; padding:0;box-sizing:border-box;font-family: 'Noto Serif KR', serif;}
+a{text-decoration: none; color:#ccc;}
+li{list-style: none;}
+body{overflow-x:hidden;}
+#main{width:100%;margin:0 auto;height:1600px;}
+#main .mainWrap{min-width:1300px; max-width:1700px;margin:0 auto;position:relative;}
