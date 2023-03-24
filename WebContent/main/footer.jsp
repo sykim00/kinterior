@@ -19,8 +19,7 @@
 				<p>
 					<span>TEL : 010-6893-6029</span> 
 					<span>FAX : 02-2222-2222</span> 
-					<span>tiffany456@naver.com
-					</span>
+					<span>tiffany456@naver.com</span>
 				</p>
 				<p>
 					<span>서울특별시 서대문구 신촌로 220-2 신촌빌딩 3층</span>

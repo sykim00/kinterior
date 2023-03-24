@@ -5,7 +5,7 @@
 SELECT * FROM MEMBER WHERE mID = 'aaa';
 -- 2. 회원가입
 INSERT INTO MEMBER (mID, mPW, mNAME, mTEL, mBIRTH, mEMAIL, mGENDER, mADDRESS)
-    VALUES ('aaa', '111', '김길마', '010-6666-6503', '1980/09/23','kim@naver.com', 'f','서울시 서대문구 신촌동');
+    VALUES ('hhh', '111', '김길마', '010-6666-6503', '1980/09/23','kim@naver.com', 'f','서울시 서대문구 신촌동');
 -- 3. 전체 등록된 회원수
 SELECT COUNT(*)CNT FROM MEMBER;
 -- 4. 로그인
@@ -26,7 +26,7 @@ UPDATE MEMBER SET
 SELECT * FROM 
     (SELECT ROWNUM RN, A.* FROM (SELECT * FROM MEMBER ORDER BY mRDATE DESC)A)
     WHERE RN BETWEEN 2 AND 3;
--- 8. 회원탈퇴
+-- 8. 회원탈퇴 (후기게시판, 견적문의 글 입력했을 경우 글 모두 다 지우고 탈퇴처리)
 DELETE FROM MEMBER WHERE mID = 'aaa';
 ------------------------------------------------------------------------------------------------
 --------------------------------- AdminDao에 들어갈 query ---------------------------------

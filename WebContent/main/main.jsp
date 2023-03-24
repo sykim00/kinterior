@@ -7,51 +7,58 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<link rel="shortcut icon" href="${conPath}/img/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="${conPath}/img/favicon.ico" type="image/x-icon">
+	<title>mainPage</title>
 	<link href="${conPath }/css/font.css" rel="stylesheet" type="text/css">
 	<link href="${conPath }/css/main.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="${conPath }/css/flexslider.css" type="text/css">
+	<link href="${conPath }/css/flexslider.css" rel="stylesheet" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+	<script src="${conPath }/js/main.js"></script>
 	<script src="${conPath }/js/jquery.flexslider.js"></script>
-	<script>
-		$(document).ready(function(){
-			  $('.flexslider').flexslider({
-				    animation: "slide",
-				    controlsContainer: $(".custom-controls-container"),
-				    customDirectionNav: $(".custom-navigation a")
-				  });
-			});
-	</script>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="main">
 		<div class="mainWrap">
-			<div class="flexslider">
-			  <ul class="slides">
-				<li>
-					<img src="${conPath }/img/main1.jpg" />
-				</li>
-				<li>
-				      <img src="${conPath }/img/main2.jpg" />
-				</li>
-				<li>
-				      <img src="${conPath }/img/main3.png" />
-				</li>
-				<li>
-				      <img src="${conPath }/img/main4.png" />
-				</li>
-				<li>
-				      <img src="${conPath }/img/main5.jpg" />
-				</li>
-			</ul>
+			<div class="main-slider">
+				<div class="flexslider">
+				  <ul class="slides">
+					<li>
+						<img src="${conPath }/img/main1.jpg" />
+					</li>
+					<li>
+					      <img src="${conPath }/img/main2.jpg" />
+					</li>
+					<li>
+					      <img src="${conPath }/img/main3.png" />
+					</li>
+					<li>
+					      <img src="${conPath }/img/main4.png" />
+					</li>
+					<li>
+					      <img src="${conPath }/img/main5.jpg" />
+					</li>
+				</ul>
+				</div>
+				<div class="custom-navigation">
+					<a href="#" class="flex-prev">&lt;</a>
+					  	<div class="custom-controls-container"></div>
+					<a href="#" class="flex-next">&gt;</a>
+				</div>
 			</div>
-			<div class="custom-navigation">
-				<a href="#" class="flex-prev">prev</a>
-				  	<div class="custom-controls-container"></div>
-				<a href="#" class="flex-next">next</a>
+			<div class="interior">
+				<span class="left-line"></span>
+				<div class="interior-view">
+					<div class="interior-view1 view_img">
+						<a href="#"><img src="${conPath }/img/1.jpg"></a>
+					</div>
+					<div class="interior-view2 view_img">
+						<a href="#"><img src="${conPath }/img/2.jpg"></a>
+						<span class="top-line"></span>
+					</div>
+					<div class="interior-view3 view_img">
+						<a href="#"><img src="${conPath }/img/3.jpg"></a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -25,6 +25,8 @@ public class Controller extends HttpServlet {
 		Service service = null;
 		if(command.equals("/main.do")) {
 			viewPage = "main/main.jsp";
+		}else if(command.equals("/joinView.do")) {
+			viewPage = "member/join.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

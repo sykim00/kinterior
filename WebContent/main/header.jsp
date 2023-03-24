@@ -10,17 +10,8 @@
 	<title>header</title>
 	<link href="${conPath }/css/font.css" rel="stylesheet" type="text/css">
 	<link href="${conPath }/css/header.css" rel="stylesheet" type="text/css">
-	<script>
-	$(window).scroll(function(){
-		var scroll = $(this).scrollTop();
-		if(scroll > 1){
-			$("#header").css("border-bottom-width","1px").css("border-bottom-style","solid").css("border-bottom-color","#ccc");
-			$("#header").css("box-shadow", "0px 0px 20px #000");
-		}else{
-			$("#header").css("border-bottom","none");
-		}
-});
-	</script>
+	
+	<script src="${conPath }/js/header.js"></script>
 </head>
 <body>
 	<div id="header">
@@ -36,7 +27,7 @@
 			</div>
 			<c:if test="${empty member and empty admin }">
 				<div class="side">
-					<a href="#" class="btn_join">회원가입</a>
+					<a href="${conPath }/joinView.do" class="btn_join">회원가입</a>
 					<a href="#" class="btn_login">로그인</a>
 				</div>
 			</c:if>
