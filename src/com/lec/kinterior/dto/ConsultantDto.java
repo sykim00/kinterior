@@ -3,7 +3,9 @@ import java.sql.Date;
 public class ConsultantDto {
 	private int cid;
 	private String mid;
+	private String mname;
 	private String aid;
+	private String aname;
 	private String ctitle;
 	private String ccontent;
 	private String cfilename;
@@ -12,11 +14,13 @@ public class ConsultantDto {
 	private int cstep;
 	private int cindent;
 	private String cip;
-	public ConsultantDto(int cid, String mid, String aid, String ctitle, String ccontent, String cfilename, Date crdate,
-			int cgroup, int cstep, int cindent, String cip) {
+	public ConsultantDto(int cid, String mid, String mname, String aid, String aname, String ctitle, String ccontent,
+			String cfilename, Date crdate, int cgroup, int cstep, int cindent, String cip) {
 		this.cid = cid;
 		this.mid = mid;
+		this.mname = mname;
 		this.aid = aid;
+		this.aname = aname;
 		this.ctitle = ctitle;
 		this.ccontent = ccontent;
 		this.cfilename = cfilename;
@@ -38,11 +42,23 @@ public class ConsultantDto {
 	public void setMid(String mid) {
 		this.mid = mid;
 	}
+	public String getMname() {
+		return mname;
+	}
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
 	public String getAid() {
 		return aid;
 	}
 	public void setAid(String aid) {
 		this.aid = aid;
+	}
+	public String getAname() {
+		return aname;
+	}
+	public void setAname(String aname) {
+		this.aname = aname;
 	}
 	public String getCtitle() {
 		return ctitle;
@@ -94,8 +110,8 @@ public class ConsultantDto {
 	}
 	@Override
 	public String toString() {
-		return "ConsultantDto [cid=" + cid + ", mid=" + mid + ", aid=" + aid + ", ctitle=" + ctitle + ", ccontent="
-				+ ccontent + ", cfilename=" + cfilename + ", crdate=" + crdate + ", cgroup=" + cgroup + ", cstep="
-				+ cstep + ", cindent=" + cindent + ", cip=" + cip + "]";
+		return "ConsultantDto [cid=" + cid + ", mid=" + mid + ", mname=" + mname + ", aid=" + aid + ", aname=" + aname
+				+ ", ctitle=" + ctitle + ", ccontent=" + ccontent + ", cfilename=" + cfilename + ", crdate=" + crdate
+				+ ", cgroup=" + cgroup + ", cstep=" + cstep + ", cindent=" + cindent + ", cip=" + cip + "]";
 	}
 }

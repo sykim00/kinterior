@@ -125,6 +125,7 @@ public class ReviewBoardDao {
 	// 4. 리뷰글번호(rid)로 전체내용(reviewBoard) 가져오기 (상세보기용)
 	public ReviewBoardDto getReivewBoard(int rid) {
 		ReviewBoardDto rdto = null;
+		hitUpReview(rid);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

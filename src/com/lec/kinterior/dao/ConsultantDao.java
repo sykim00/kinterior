@@ -47,7 +47,9 @@ public class ConsultantDao {
 			while(rs.next()) {
 				int cid = rs.getInt("cid");
 				String mid = rs.getString("mid");
+				String mname = rs.getString("mname");
 				String aid = rs.getString("aid");
+				String aname = rs.getString("aname");
 				String ctitle = rs.getString("ctitle");
 				String ccontent = rs.getString("ccontent");
 				String cfilename = rs.getString("cfilename");
@@ -56,7 +58,7 @@ public class ConsultantDao {
 				int cstep = rs.getInt("cstep");
 				int cindent = rs.getInt("cindent");
 				String cip = rs.getString("cip");
-				consulants.add(new ConsultantDto(cid, mid, aid, ctitle, ccontent, cfilename, crdate, cgroup, cstep, cindent, cip));
+				consulants.add(new ConsultantDto(cid, mid, mname, aid, aname, ctitle, ccontent, cfilename, crdate, cgroup, cstep, cindent, cip));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -143,7 +145,9 @@ public class ConsultantDao {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				String mid = rs.getString("mid");
+				String mname = rs.getString("mname");
 				String aid = rs.getString("aid");
+				String aname = rs.getString("aname");
 				String ctitle = rs.getString("ctitle");
 				String ccontent = rs.getString("ccontent");
 				String cfilename = rs.getString("cfilename");
@@ -152,7 +156,7 @@ public class ConsultantDao {
 				int cstep = rs.getInt("cstep");
 				int cindent = rs.getInt("cindent");
 				String cip = rs.getString("cip");
-				cdto = new ConsultantDto(cid, mid, aid, ctitle, ccontent, cfilename, crdate, cgroup, cstep, cindent, cip);
+				cdto = new ConsultantDto(cid, mid, mname, aid, aname, ctitle, ccontent, cfilename, crdate, cgroup, cstep, cindent, cip);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -184,7 +188,9 @@ public class ConsultantDao {
 				rs = pstmt.executeQuery();
 				if(rs.next()) {
 					String mid = rs.getString("mid");
+					String mname = rs.getString("mname");
 					String aid = rs.getString("aid");
+					String aname = rs.getString("aname");
 					String ctitle = rs.getString("ctitle");
 					String ccontent = rs.getString("ccontent");
 					String cfilename = rs.getString("cfilename");
@@ -193,7 +199,7 @@ public class ConsultantDao {
 					int cstep = rs.getInt("cstep");
 					int cindent = rs.getInt("cindent");
 					String cip = rs.getString("cip");
-					cdto = new ConsultantDto(cid, mid, aid, ctitle, ccontent, cfilename, crdate, cgroup, cstep, cindent, cip);
+					cdto = new ConsultantDto(cid, mid, mname, aid, aname, ctitle, ccontent, cfilename, crdate, cgroup, cstep, cindent, cip);
 				}
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());

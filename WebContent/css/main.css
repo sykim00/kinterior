@@ -1,8 +1,9 @@
 @charset "UTF-8";
-*{margin:0 auto;
-padding:0;
-box-sizing:border-box;
-font-family: 'Noto Serif KR', serif;
+*{
+	margin:0 auto;
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'Noto Serif KR', serif;
 }
 a{
 	text-decoration: none;
@@ -36,7 +37,7 @@ li{
 	width:100%;
 }
 #main .mainWrap .main-slider{
-	min-width:1300px;
+	min-width:1250px;
 }
 #main .mainWrap .interior{
 	width:100%;
