@@ -78,5 +78,17 @@ a{
 #header .headerin .side a.btn_logout{
 	background:url("../img/ico_logout.png")center top no-repeat;
 }
-
-
+#header .headerin .side a.btn_members{
+	background:url("../img/ico_mem01.png")center top no-repeat;
+}
+#header .headerin .side a.btn_adminLogout{
+	background:url("../img/ico_logout.png")center top no-repeat;
+}
+#header .headerin .side:last-child a{
+	height:100%;
+	padding-top:32px;
+	text-align:center;
+	margin-right:3px;
+	width:82px;
+	font-size:14px;
+}

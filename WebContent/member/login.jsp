@@ -37,9 +37,6 @@
 					<tr>
 						<td>
 							<input type="password" name="mpw" class="mpw focusB" placeholder="비밀번호를 입력해주세요.">
-							<c:if test="${not empty mLoginErrorMsg }">							
-								<div class="mLoginErrorMsg">${mLoginErrorMsg }</div>
-							</c:if>
 						</td>
 					</tr>
 					<tr>

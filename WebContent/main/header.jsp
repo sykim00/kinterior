@@ -36,10 +36,10 @@
 					<a href="${conPath }/logout.do" class="btn_logout">로그아웃</a>
 				</div>
 			</c:if>
-			<c:if test="${empty member and not empty admin }">
+			<c:if test="${not empty admin and empty member }">
 				<div class="side">
-					<a href="#">회원관리</a>
-					<a href="#">관리자모드 나가기</a>
+					<a href="#" class="btn_members">회원관리</a>
+					<a href="${conPath }/logout.do" class="btn_adminLogout">관리자나가기</a>
 				</div>
 			</c:if>
 		</div>

@@ -39,13 +39,20 @@ SELECT * FROM ADMIN WHERE aID = 'admin';
 ------------------------------------------------------------------------------------------------
 -------------------------------- ConsultantDao에 들어갈 query (MEMBER, ADMIN) -----------------------------------
 ------------------------------------------------------------------------------------------------
--- 1. 견적문의 글 목록 출력
+-- 1. 견적문의 글 목록 출력   
 SELECT V.*, 
     (SELECT mNAME FROM MEMBER M WHERE V.mID = M.mID) mNAME,
     (SELECT aNAME FROM ADMIN A WHERE V.aID = A.aID) aNAME
         FROM (SELECT ROWNUM RN, C.*
-            FROM (SELECT * FROM CONSULTANT ORDER BY cRDATE)C)V
+                FROM (SELECT * FROM CONSULTANT ORDER BY cGROUP DESC, cINDENT, cRDATE DESC)C)V
         WHERE RN BETWEEN 1 AND 11;
+SELECT V.*, 
+    (SELECT mNAME FROM MEMBER M WHERE V.mID = M.mID) mNAME,
+    (SELECT aNAME FROM ADMIN A WHERE V.aID = A.aID) aNAME
+        FROM (SELECT ROWNUM RN, C.*
+            FROM (SELECT * FROM CONSULTANT ORDER BY cGROUP DESC, cSTEP)C)V
+        WHERE RN BETWEEN 1 AND 11;
+        
 -- 2. 견적문의 글 갯수
 SELECT COUNT(*)CNT FROM CONSULTANT;
 -- 3. 견적문의 글쓰기(원글쓰기)
@@ -87,6 +94,7 @@ DELETE FROM CONSULTANT WHERE mID = 'aaa';
 SELECT LPAD('└', 4, ' ') FROM DUAL;
 SELECT cID, cTITLE, mID, cRDATE FROM CONSULTANT;
 SELECT cID, LPAD('└', (cINDENT * 2), ' ')||cTITLE TITLE, cGROUP, cINDENT, cSTEP FROM CONSULTANT ORDER BY cGROUP, cSTEP;
+SELECT * FROM CONSULTANT WHERE MID = 'aaa' AND cGROUP = 1;
 ------------------------------------------------------------------------------------------------
 --------------------------------- ReviewBoardDao에 들어갈 query (MEMBER)---------------------------------
 ------------------------------------------------------------------------------------------------

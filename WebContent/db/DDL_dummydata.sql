@@ -88,7 +88,10 @@ INSERT INTO CONSULTANT (cID, mID, aID, cTITLE, cCONTENT, cFILENAME, cGROUP, cSTE
 INSERT INTO CONSULTANT (cID, mID, aID, cTITLE, cCONTENT, cFILENAME, cGROUP, cSTEP, cINDENT, cIP)
     VALUES (CONSULTANT_SEQ.NEXTVAL, 'ccc', null, '푸드코드설계 답의 답변글입니다.', '글 본문입니다.', '3.xlsx', 3, 2, 2, '185.854.3.13');
 
-SELECT * FROM CONSULTANT;
+-- 2번글의 답변달기
+INSERT INTO CONSULTANT (cID, mID, aID, cTITLE, cCONTENT, cFILENAME, cGROUP, cSTEP, cINDENT, cIP)
+    VALUES (CONSULTANT_SEQ.NEXTVAL, null, 'admin', '전시공간 견적문의 답변드립니다.', '글 본문입니다.', null, 2, 1, 1, '192.168.0.05');  
+
 SELECT * FROM CONSULTANT ORDER BY cGROUP, cSTEP;
 --------------------------------- REVIEW_BOARD ---------------------------------
 

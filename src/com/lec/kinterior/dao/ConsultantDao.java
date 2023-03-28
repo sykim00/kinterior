@@ -28,7 +28,7 @@ public class ConsultantDao {
 	}
 	// 1. 견적문의 글 목록 출력
 	public ArrayList<ConsultantDto> consultantList(int startRow, int endRow){
-		ArrayList<ConsultantDto> consulants = new ArrayList<ConsultantDto>();
+		ArrayList<ConsultantDto> consultants = new ArrayList<ConsultantDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -36,7 +36,7 @@ public class ConsultantDao {
 					"    (SELECT mNAME FROM MEMBER M WHERE V.mID = M.mID) mNAME," + 
 					"    (SELECT aNAME FROM ADMIN A WHERE V.aID = A.aID) aNAME" + 
 					"        FROM (SELECT ROWNUM RN, C.*" + 
-					"            FROM (SELECT * FROM CONSULTANT ORDER BY cRDATE)C)V" + 
+					"                FROM (SELECT * FROM CONSULTANT ORDER BY cGROUP DESC, cINDENT, cRDATE DESC)C)V" + 
 					"        WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = ds.getConnection();
@@ -58,7 +58,7 @@ public class ConsultantDao {
 				int cstep = rs.getInt("cstep");
 				int cindent = rs.getInt("cindent");
 				String cip = rs.getString("cip");
-				consulants.add(new ConsultantDto(cid, mid, mname, aid, aname, ctitle, ccontent, cfilename, crdate, cgroup, cstep, cindent, cip));
+				consultants.add(new ConsultantDto(cid, mid, mname, aid, aname, ctitle, ccontent, cfilename, crdate, cgroup, cstep, cindent, cip));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -71,7 +71,7 @@ public class ConsultantDao {
 				System.out.println(e.getMessage());
 			}
 		}
-		return consulants;
+		return consultants;
 	}
 	// 2. 견적문의 글 갯수
 	public int conTotCnt() {

@@ -1,0 +1,110 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'Noto Serif KR', serif;
+}
+li{
+	list-style:none;
+}
+a{
+	text-decoration: none;
+	color: #333;
+	display:block;
+}
+#content-form{
+	width:1000px;
+	margin:0 auto;
+	margin-top:160px;
+	margin-bottom: 100px;
+}
+#content-form .conBoard-title{
+	text-align:center;
+	font-size:25px;
+	font-weight:600;
+	letter-spacing: -1px;
+	color:#333;
+	line-height: 35px;
+	padding-bottom:40px;
+	border-bottom:1px solid #333;
+}
+#content-form .conBoard-wrap table{
+	width:100%;
+	margin:0 auto;
+	border-collapse: collapse
+}
+#content-form .conBoard-wrap table tr{
+	border-bottom:1px solid #e0e0e0;
+}
+#content-form .conBoard-wrap table tr .ctitle{
+	width:80%;
+	text-align: left;
+	margin-left: 43px;
+}
+#content-form .conBoard-wrap table tr th{
+	font-weight:600;
+	text-align: center;
+    padding: 15px 10px 15px 30px;
+    font-weight: 600;
+    vertical-align: center;
+    font-size:15px;
+    color:#515151;
+    cursor:pointer;
+}
+#content-form .conBoard-wrap table tr td{
+    text-align: center;
+    padding: 15px 10px 15px 30px;
+    font-weight: 400;
+    vertical-align: center;
+    font-size:15px;
+    color:#515151;
+    cursor:pointer;
+}
+#content-form .conBoard-wrap table tr .left{
+    text-align: left;
+    margin-left:30px;
+}
+#content-form .conBoard-wrap table tr .file-left{
+    text-align: left;
+    padding-left: 70px;
+}
+#content-form .conBoard-wrap table tr:last-child{
+	border-bottom:0;
+}
+#content-form .conBoard-wrap input[type=file]::file-selector-button{
+	background:#000;
+	color:#fff;
+	border:0px;
+	width:100px;
+	height:30px;
+	border-radius: 5px;
+	cursor:pointer;
+}
+#content-form .conBoard-wrap button.btnStyle{
+    width: 10%;
+    height: 40px;
+    border-radius: 5px;
+    border: 0px none;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left:10px;
+    margin-top:20px;
+    cursor:pointer;
+}
+#content-form .conBoard-wrap button.btn2{
+    width: 10%;
+    height: 40px;
+    border-radius: 5px;
+    border: 0px none;
+    color: #000;
+    border:1px solid #dbdbdb;
+    background:#fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left:10px;
+    margin-top:20px;
+    cursor:pointer;
+}

@@ -22,8 +22,8 @@ public class ConsultantListService implements Service {
 		int startRow = (currentPage-1)*PAGESIZE+1;
 		int endRow = startRow + PAGESIZE -1;
 		ConsultantDao cDao = ConsultantDao.getInstance();
-		ArrayList<ConsultantDto> consulantList = cDao.consultantList(startRow, endRow);
-		request.setAttribute("consulantList", consulantList);
+		ArrayList<ConsultantDto> consultantList = cDao.consultantList(startRow, endRow);
+		request.setAttribute("consultantList", consultantList);
 		int conTotCnt = cDao.conTotCnt();
 		int pageTotCnt = (int)Math.ceil((double)conTotCnt/PAGESIZE);
 		int startPage = ((currentPage-1)/BLOCKSIZE)*BLOCKSIZE + 1;

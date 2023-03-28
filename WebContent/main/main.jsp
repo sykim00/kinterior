@@ -27,6 +27,12 @@
 			history.back();
 		</script>
 	</c:if>
+	<c:if test="${not empty adminLoginResult }">
+		<script>
+			alert("${adminLoginResult}");
+			hisotry.back();
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="main">
 		<div class="mainWrap">

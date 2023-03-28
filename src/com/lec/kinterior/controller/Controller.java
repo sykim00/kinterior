@@ -7,7 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lec.kinterior.service.ALoginService;
+import com.lec.kinterior.service.ConsultContentService;
+import com.lec.kinterior.service.ConsultDeleteService;
+import com.lec.kinterior.service.ConsultModifyService;
+import com.lec.kinterior.service.ConsultModifyViewService;
+import com.lec.kinterior.service.ConsultWriteService;
 import com.lec.kinterior.service.ConsultantListService;
+import com.lec.kinterior.service.MAllViewService;
 import com.lec.kinterior.service.MLoginService;
 import com.lec.kinterior.service.MLogoutService;
 import com.lec.kinterior.service.MidConfirmService;
@@ -51,13 +58,42 @@ public class Controller extends HttpServlet {
 			service = new MLogoutService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";
+		}else if(command.equals("/adminLoginView.do")) {
+			viewPage = "admin/adminLogin.jsp";
+		}else if(command.equals("/adminLogin.do")) {
+			service = new ALoginService();
+			service.execute(request, response);
+			viewPage = "main.do";
+		}else if(command.equals("/allView.do")) {
+			service = new MAllViewService();
+			service.execute(request, response);
+			viewPage = "member/mAllView.jsp";
 		}else if(command.equals("/consultList.do")) {
 			service = new ConsultantListService();
 			service.execute(request, response);
-			viewPage = "consultant/consultnatList.jsp";
-		}
-		else if(command.equals("/consultWriteView.do")) {
+			viewPage = "consultant/consultantList.jsp";
+		}else if(command.equals("/consultWriteView.do")) {
 			viewPage = "consultant/consultantWrite.jsp";
+		}else if(command.equals("/consultWrite.do")) {
+			service = new ConsultWriteService();
+			service.execute(request, response);
+			viewPage = "consultList.do";
+		}else if(command.equals("/consultContent.do")) {
+			service = new ConsultContentService();
+			service.execute(request, response);
+			viewPage = "consultant/consultantContent.jsp";
+		}else if(command.equals("/consultModifyView.do")) {
+			service = new ConsultModifyViewService();
+			service.execute(request, response);
+			viewPage = "consultant/consultantModify.jsp";
+		}else if(command.equals("/consultModify.do")) {
+			service = new ConsultModifyService();
+			service.execute(request, response);
+			viewPage = "consultList.do";
+		}else if(command.equals("/consultDelete.do")) {
+			service = new ConsultDeleteService();
+			service.execute(request, response);
+			viewPage = "consultList.do";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
