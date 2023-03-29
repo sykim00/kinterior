@@ -37,6 +37,7 @@ a{
 #content-form .conBoard-wrap table tr{
 	border-bottom:1px solid #e0e0e0;
 }
+}
 #content-form .conBoard-wrap table tr .ctitle{
 	width:80%;
 	text-align: left;
@@ -61,13 +62,30 @@ a{
     color:#515151;
     cursor:pointer;
 }
+#content-form .conBoard-wrap table tr td .focusB{
+	-webkit-box-shadow: 0 0 0 1000px #fff inset;
+	border:1px solid #b8b8b8;
+	width:80%;
+}
+#content-form .conBoard-wrap table tr td .focusC{
+	-webkit-box-shadow: 0 0 0 1000px #fff inset;
+	border:1px solid #b8b8b8;
+	width:80%;
+}
 #content-form .conBoard-wrap table tr .left{
     text-align: left;
-    margin-left:30px;
+    padding-left: 70px;
 }
-#content-form .conBoard-wrap table tr .file-left{
+#content-form .conBoard-wrap table tr .ctitle-left{
     text-align: left;
     padding-left: 70px;
+}
+#content-form .conBoard-wrap table tr .reply-left{
+    text-align: left;
+    padding-left: 80px;
+}
+#content-form .conBoard-wrap table tr td textarea{
+	border:1px solid #b8b8b8;
 }
 #content-form .conBoard-wrap table tr:last-child{
 	border-bottom:0;

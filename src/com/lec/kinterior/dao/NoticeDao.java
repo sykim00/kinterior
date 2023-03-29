@@ -45,10 +45,11 @@ public class NoticeDao {
 			while(rs.next()) {
 				int nid = rs.getInt("nid");
 				String aid = rs.getString("aid");
+				String aname = rs.getString("aname");
 				String ntitle = rs.getString("ntitle");
 				String ncontent = rs.getString("ncontent");
 				Date nrdate = rs.getDate("nrdate");
-				notice.add(new NoticeDto(nid, aid, ntitle, ncontent, nrdate));
+				notice.add(new NoticeDto(nid, aid, aname, ntitle, ncontent, nrdate));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -62,6 +63,32 @@ public class NoticeDao {
 			}
 		}
 		return notice;
+	}
+	// 1-1 공지사항 글 갯수 가져오기
+	public int NoticeTotCnt() {
+		int NoticeTotCnt = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT COUNT(*)CNT FROM NOTICE_BOARD";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			NoticeTotCnt = rs.getInt("cnt");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}finally {
+			try {
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return NoticeTotCnt;
 	}
 	// 2. 공지사항 글쓰기
 	public int writeNotice(NoticeDto ndto) {
@@ -104,10 +131,11 @@ public class NoticeDao {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				String aid = rs.getString("aid");
+				String aname = rs.getString("aname");
 				String ntitle = rs.getString("ntitle");
 				String ncontent = rs.getString("ncontent");
 				Date nrdate = rs.getDate("nrdate");
-				ndto = new NoticeDto(nid, aid, ntitle, ncontent, nrdate);
+				ndto = new NoticeDto(nid, aid, aname, ntitle, ncontent, nrdate);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -136,10 +164,11 @@ public class NoticeDao {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				String aid = rs.getString("aid");
+				String aname = rs.getString("aname");
 				String ntitle = rs.getString("ntitle");
 				String ncontent = rs.getString("ncontent");
 				Date nrdate = rs.getDate("nrdate");
-				ndto = new NoticeDto(nid, aid, ntitle, ncontent, nrdate);
+				ndto = new NoticeDto(nid, aid, aname, ntitle, ncontent, nrdate);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

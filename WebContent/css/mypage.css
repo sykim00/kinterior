@@ -1,0 +1,114 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'Noto Serif KR', serif;
+}
+li{
+	list-style:none;
+}
+a{
+	text-decoration: none;
+	color: #333;
+	display:block;
+}
+#content-form{
+	margin-top:130px;
+	margin-bottom:90px;
+	min-width:1250px;
+	background:#fff;
+}
+#content-form .mypage-title{
+	text-align:center;
+	font-size:30px;
+	font-weight: 600;
+	letter-spacing: -1px;
+	color:#333;
+	line-height:35px;
+	margin-bottom:50px;
+}
+#content-form .mypage-wrap{
+	width:600px;
+	margin:0 auto;
+}
+#content-form .mypage-wrap .muypage-line{
+	width:100%;
+	border-top:2px solid #333;
+	margin-bottom:40px;
+}
+#content-form .mypage-wrap .mypage-content{
+		display:flex;
+		border:1px solid #b3b3b3;
+		border-radius:5px;
+}
+#content-form .mypage-wrap .mypage-content .user{
+	width:365px;
+	padding:30px;
+	border-right:1px solid #ddd;
+}
+#content-form .mypage-wrap .mypage-content .user .mname{
+	font-size:22px;
+}
+#content-form .mypage-wrap .mypage-content .user .mname strong{
+	font-size:24px;
+	line-height: 1;
+	color:#333;
+	font-weight:500;
+}
+#content-form .mypage-wrap .mypage-content .user .memail{
+	font-size:16px;
+	color:#666;
+	margin-top:8px;
+}
+#content-form .mypage-wrap .mypage-content .bottom{
+	margin-top:50px;
+}
+#content-form .mypage-wrap .mypage-content .bottom .btnStyle{
+	width:212px;
+	height:40px;
+	border-radius: 5px;
+	border:1px solid #333;
+	background:#fff;
+	color:#000;
+	font-size:14px;
+	font-weight: 600;
+	padding:0 10px;
+	margin-top:40px;
+	cursor:pointer;
+}
+#content-form .mypage-wrap .mypage-content .content{
+	width:100%;
+	padding:30px;	
+}
+#content-form .mypage-wrap .mypage-content .content >div{
+	height:50%;
+}
+#content-form .mypage-wrap .mypage-content .content-top strong{
+	font-size:20px;
+	line-height: 1;
+	color:#333;
+	font-weight:500;
+}
+#content-form .mypage-wrap .mypage-content .content .content-bottom{
+	margin-top:40px;
+}
+#content-form .mypage-wrap .mypage-content .content .consult-btn{
+    font-size: 14px;
+    font-weight: 700;
+    text-align: right;
+}
+#content-form .mypage-wrap .mypage-content .content .consult-btn a{
+	border-bottom:1px solid #333;
+    display:inline-block;
+}
+#content-form .mypage-wrap .mypage-content .content .review-btn{
+	margin-top:10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: right;
+}
+#content-form .mypage-wrap .mypage-content .content .review-btn a{
+	border-bottom:1px solid #333;
+    display:inline-block;
+}

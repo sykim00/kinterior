@@ -15,11 +15,12 @@ public class MjoinService implements Service {
 		String mbirthYear = request.getParameter("mbirthYear");
 		String mbirthMonth = request.getParameter("mbirthMonth");
 		String mbirthDay = request.getParameter("mbirthDay");
-		String mbirthStr = mbirthYear + "-" + mbirthMonth + "-" + mbirthDay;
 		String memail = request.getParameter("memail");
 		String mgender = request.getParameter("mgender");
 		String maddress = request.getParameter("maddress");
-		if(!mbirthStr.equals("")) {
+		if(!mbirthYear.equals("") && !mbirthMonth.equals("") && !mbirthDay.equals("")) {
+			String mbirthStr = mbirthYear + "-" + ((mbirthMonth.length()==1)? "0"+mbirthMonth : mbirthMonth)
+					+ "-" + ((mbirthDay.length()==1)? "0"+mbirthDay : mbirthDay);
 			mbirth = Date.valueOf(mbirthStr);
 		}
 		MemberDao mDao = MemberDao.getInstance();

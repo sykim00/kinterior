@@ -12,13 +12,17 @@ import com.lec.kinterior.service.ConsultContentService;
 import com.lec.kinterior.service.ConsultDeleteService;
 import com.lec.kinterior.service.ConsultModifyService;
 import com.lec.kinterior.service.ConsultModifyViewService;
+import com.lec.kinterior.service.ConsultReplyService;
+import com.lec.kinterior.service.ConsultReplyViewService;
 import com.lec.kinterior.service.ConsultWriteService;
 import com.lec.kinterior.service.ConsultantListService;
 import com.lec.kinterior.service.MAllViewService;
 import com.lec.kinterior.service.MLoginService;
 import com.lec.kinterior.service.MLogoutService;
+import com.lec.kinterior.service.MModifyService;
 import com.lec.kinterior.service.MidConfirmService;
 import com.lec.kinterior.service.MjoinService;
+import com.lec.kinterior.service.NoticeListService;
 import com.lec.kinterior.service.Service;
 @WebServlet("*.do")
 public class Controller extends HttpServlet {
@@ -49,7 +53,7 @@ public class Controller extends HttpServlet {
 			service.execute(request, response);
 			viewPage = "loginView.do";
 		}else if(command.equals("/loginView.do")) {
-			viewPage = "member/login.jsp"; 
+			viewPage = "member/login.jsp";
 		}else if(command.equals("/login.do")) {
 			service = new MLoginService();
 			service.execute(request, response);
@@ -58,6 +62,14 @@ public class Controller extends HttpServlet {
 			service = new MLogoutService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";
+		}else if(command.equals("/mypageView.do")){
+			viewPage = "member/mypage.jsp";
+		}else if(command.equals("/modifyView.do")) {
+			viewPage = "member/mypageModify.jsp";
+		}else if(command.equals("/modify.do")) {
+			service = new MModifyService();
+			service.execute(request, response);
+			viewPage = "main.do";
 		}else if(command.equals("/adminLoginView.do")) {
 			viewPage = "admin/adminLogin.jsp";
 		}else if(command.equals("/adminLogin.do")) {
@@ -94,6 +106,18 @@ public class Controller extends HttpServlet {
 			service = new ConsultDeleteService();
 			service.execute(request, response);
 			viewPage = "consultList.do";
+		}else if(command.equals("/consultReplyView.do")) {
+			service = new ConsultReplyViewService();
+			service.execute(request, response);
+			viewPage = "consultant/consultReply.jsp";
+		}else if(command.equals("/consultReply.do")) {
+			service = new ConsultReplyService();
+			service.execute(request, response);
+			viewPage = "consultList.do";
+		}else if(command.equals("/noticeList.do")) {
+			service = new NoticeListService();
+			service.execute(request, response);
+			viewPage = "notice/noticeList.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

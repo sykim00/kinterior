@@ -24,11 +24,6 @@ pageEncoding="UTF-8"%>
 	</script>
 </head>
 <body>
-	<c:if test="${not empty consultResult }">
-		<script>
-			alert("${consultResult}");
-		</script>
-	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="consultant-wrap">
 		<div class="consultant-title">견적문의 게시판</div>
@@ -63,8 +58,10 @@ pageEncoding="UTF-8"%>
 										<img src="${conPath }/img/lock_icon.png">
 									</c:if>
 									<c:if test="${i != conBoard.cindent}">
-										&nbsp; &nbsp; &nbsp;
-										<img src="${conPath }/img/indent_img.png">
+										&nbsp; &nbsp; 
+										<c:if test="${not empty conBoard.mid }">
+											<img src="${conPath }/img/indent_img.png">											
+										</c:if>
 									</c:if>
 								</c:forEach>
 								${conBoard.ctitle}
@@ -77,7 +74,7 @@ pageEncoding="UTF-8"%>
 									${conBoard.aname }
 							</td>
 							<td>
-								<fmt:formatDate value="${conBoard.crdate}" type="date" dateStyle="medium" />
+								<fmt:formatDate value="${conBoard.crdate}" type="date" pattern="yyyy.MM.dd" />
 							</td>
 						</tr>
 					</c:forEach>
@@ -113,7 +110,9 @@ pageEncoding="UTF-8"%>
 			</div>
 		</div>
 		<div class="write-btn">
+			<c:if test="${not empty member || empty member || not empty admin }">			
 				<button type="button" onclick="location.href='${conPath}/consultWriteView.do'">글쓰기</button>
+			</c:if>
 <%-- 			<c:if test="${not empty member }">
 				<button type="button" onclick="location.href='${conPath}/consultWriteView.do'">글쓰기</button>
 			</c:if> --%>

@@ -1,0 +1,67 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'Noto Serif KR', serif;
+}
+li{
+	list-style:none;
+}
+a{
+	text-decoration: none;
+	color: #333;
+	display:block;
+}
+#content-form{
+	width:1000px;
+	margin:0 auto;
+	margin-top:160px;
+	margin-bottom: 100px;
+}
+#content-form .memberList{
+	text-align:center;
+	font-size:25px;
+	font-weight:600;
+	letter-spacing: -1px;
+	color:#333;
+	line-height: 35px;
+	padding-bottom:40px;
+	border-bottom:1px solid #333;
+}
+#content-form .memberList-page table{
+	width:100%;
+	margin:0 auto;
+	border-collapse: collapse
+}
+#content-form .memberList-page table tr{
+	border-bottom:1px solid #e0e0e0;
+}
+#content-form .memberList-page table tr:first-child td{
+	font-weight:500;
+	color:#000;
+}
+#content-form .memberList-page table tr td{
+    text-align: center;
+    padding: 15px 10px 15px 30px;
+    font-weight: 400;
+    vertical-align: center;
+    font-size:14px;
+    color:#515151;
+    cursor:pointer;
+}
+#content-form .memberList-page table tr .left{
+	text-align:left;
+}
+.paging{
+	text-align: center;
+    margin-top: 50px;
+}
+.paging > a{
+	display:inline-block;
+	padding:0 10px;
+	color:#888;
+}
+.paging b{
+	color:#333;
+}

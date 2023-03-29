@@ -95,6 +95,8 @@ SELECT LPAD('└', 4, ' ') FROM DUAL;
 SELECT cID, cTITLE, mID, cRDATE FROM CONSULTANT;
 SELECT cID, LPAD('└', (cINDENT * 2), ' ')||cTITLE TITLE, cGROUP, cINDENT, cSTEP FROM CONSULTANT ORDER BY cGROUP, cSTEP;
 SELECT * FROM CONSULTANT WHERE MID = 'aaa' AND cGROUP = 1;
+-- 10. ccc가 쓴 글의 group
+SELECT DISTINCT CGROUP FROM CONSULTANT WHERE MID = 'ccc';
 ------------------------------------------------------------------------------------------------
 --------------------------------- ReviewBoardDao에 들어갈 query (MEMBER)---------------------------------
 ------------------------------------------------------------------------------------------------
@@ -163,5 +165,8 @@ UPDATE NOTICE_BOARD SET
     WHERE nID = 1;
 -- 5. 공지사항글 삭제하기
 DELETE FROM NOTICE_BOARD WHERE nID = 1;
+
+-- 6. 공지사항 글 갯수
+SELECT COUNT(*)CNT FROM NOTICE_BOARD;
 ROLLBACK;
 COMMIT;

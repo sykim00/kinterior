@@ -5,7 +5,7 @@ $(document).ready(function(){
 	$(".join-form table tr .focusB").blur(function(){
 		$(this).css("border", "1px solid #b8b8b8");
 	});
-	const patternId = /^[a-z]{1}[a-z0-9_-]{3,15}$/;
+	const patternId = /^[a-z]{1}[a-z0-9_-]{2,15}$/;
 	const patternPw = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~`!@#$%^&*()-_+=|\\\[\]{}'";:?,.\/]).{8,16}$/; //^[a-zA-Z0-9~`!@#$%^&*()-_+=|\\\[\]{}'";:?,.\/]{8,16}$
 	const patternName = /^[a-zA-Z가-힣]{1,}$/;
 	const patternSpc = /[~`!@#$%^&*()-_+=|\\\[\]{}'";:?,.\/]/;
@@ -16,12 +16,19 @@ $(document).ready(function(){
 	const patternMail = /^\w+@\w+(\.\w+){1,2}$/; // 이메일 정규표현식
 	var today = new Date();
 	var yearNow = today.getFullYear(); // 올해 년도
-		$("#mid").keyup(function(){
+	var mbirthYear, mbirthMonth, mbirthDay;
+	if(mbirthMonth<10){
+		mbirthMonth = "0" + mbirthMonth;
+	}else if(mbirthDay <10){
+		mbrithDay = "0" + mbirthDay;
+	}
+	$(".mbirth").append(mbirthYear + mbirthMonth + mbirthDay);
+	$("#mid").keyup(function(){
 		var mid = $(this).val();
 		if(!mid){
 			$(".midResult").html("<p>필수 정보입니다.</p>");
-		}else if(mid.length < 3 && !mid.match(patternId)){
-			$(".midResult").html("<p>3~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.</p>");
+		}else if(!mid.match(patternId)){
+			$(".midResult").html("<p>2~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.</p>");
 		}else{
 			$.ajax({
 				url : 'midConfirm.do',
@@ -83,7 +90,7 @@ $(document).ready(function(){
 			$(".mtelResult").html("");
 		}
 	}); //mtel-keyup 이벤트
-	
+	/*
 	$(".mbirthYear").keyup(function(){
 		var mbirthYear = $(this).val();
 		if(mbirthYear.length >= 1 && mbirthYear > yearNow){
@@ -113,9 +120,9 @@ $(document).ready(function(){
 	}); // mibrthDa-keyup 이벤트
 	 */
 	$(".mbirth").keyup(function(){
-		var mbirthYear = $(".mbirthYear").val();
-		var mbirthMonth = $(".mbirthMonth").val();
-		var mbirthDay = $(".mbirthDay").val();
+		mbirthYear = $(".mbirthYear").val();
+		mbirthMonth = $(".mbirthMonth").val();
+		mbirthDay = $(".mbirthDay").val();
 		if(mbirthYear.length >= 1 && mbirthYear > yearNow){
 			$(".mbirthResult").html("<p>생년월일이 미래로 입력되었습니다.</p>");
 		}else if(mbirthYear.length >= 1 && !mbirthYear.match(patternYear)){

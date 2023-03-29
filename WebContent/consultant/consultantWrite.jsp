@@ -27,10 +27,22 @@
 			$(".btn2").mouseleave(function(){
 				$(this).css("color","#000").css("border","1px solid #dbdbdb").css("background","#fff");
 			});
+			$(".conBoard-wrap table tr td .focusB").focus(function(){
+				$(this).css("border","1px solid #000000");
+			});
+			$(".conBoard-wrap table tr td .focusB").blur(function(){
+				$(this).css("border", "1px solid #b8b8b8");
+			});
 		});
 	</script>
 </head>
 <body>
+	 <c:if test="${not empty admin}">
+		<script>
+			alert("글쓰기는 회원만 가능합니다.");
+			history.back();
+		</script>
+	</c:if>
  	<c:if test="${empty member}">
 		<script>
 			alert("글쓰기는 회원만 가능합니다.");
@@ -46,7 +58,7 @@
 					<tr>
 						<th><label for="ctitle">견적문의제목</label></th>
 						<td class="left">
-							<input type="text" name="ctitle" class="ctitle" id="ctitle">
+							<input type="text" name="ctitle" class="ctitle focusB" id="ctitle">
 						</td>
 					</tr>
 					<tr>

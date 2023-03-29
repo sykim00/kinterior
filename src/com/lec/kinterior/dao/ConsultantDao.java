@@ -104,7 +104,7 @@ public class ConsultantDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO CONSULTANT (cID, mID, aID, cTITLE, cCONTENT, cFILENAME, cGROUP, cSTEP, cINDENT, cIP)\r\n" + 
+		String sql = "INSERT INTO CONSULTANT (cID, mID, aID, cTITLE, cCONTENT, cFILENAME, cGROUP, cSTEP, cINDENT, cIP)" + 
 					"    VALUES (CONSULTANT_SEQ.NEXTVAL,?, ?, ?, ?, ?, CONSULTANT_SEQ.CURRVAL, 0, 0, ?)";
 		try {
 			conn = ds.getConnection();
@@ -172,48 +172,48 @@ public class ConsultantDao {
 		return cdto;
 	}
 	// 4. 견적문의 글번호(cid)로 전체내용(consultantDto) 가져오기 (답변글, 수정용)
-		public ConsultantDto consModify_reply(int cid) {
-			ConsultantDto cdto = null;
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			String sql = "SELECT V.*, (SELECT mNAME FROM MEMBER M WHERE V.mID = M.mID) mNAME," + 
-						"    (SELECT aNAME FROM ADMIN A WHERE V.aID = A.aID) aNAME" + 
-						"    FROM (SELECT * FROM CONSULTANT)V" + 
-						"    WHERE cID = ?";
+	public ConsultantDto consModify_reply(int cid) {
+		ConsultantDto cdto = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT V.*, (SELECT mNAME FROM MEMBER M WHERE V.mID = M.mID) mNAME," + 
+					"    (SELECT aNAME FROM ADMIN A WHERE V.aID = A.aID) aNAME" + 
+					"    FROM (SELECT * FROM CONSULTANT)V" + 
+					"    WHERE cID = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cid);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				String mid = rs.getString("mid");
+				String mname = rs.getString("mname");
+				String aid = rs.getString("aid");
+				String aname = rs.getString("aname");
+				String ctitle = rs.getString("ctitle");
+				String ccontent = rs.getString("ccontent");
+				String cfilename = rs.getString("cfilename");
+				Date crdate = rs.getDate("crdate");
+				int cgroup = rs.getInt("cgroup");
+				int cstep = rs.getInt("cstep");
+				int cindent = rs.getInt("cindent");
+				String cip = rs.getString("cip");
+				cdto = new ConsultantDto(cid, mid, mname, aid, aname, ctitle, ccontent, cfilename, crdate, cgroup, cstep, cindent, cip);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}finally {
 			try {
-				conn = ds.getConnection();
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, cid);
-				rs = pstmt.executeQuery();
-				if(rs.next()) {
-					String mid = rs.getString("mid");
-					String mname = rs.getString("mname");
-					String aid = rs.getString("aid");
-					String aname = rs.getString("aname");
-					String ctitle = rs.getString("ctitle");
-					String ccontent = rs.getString("ccontent");
-					String cfilename = rs.getString("cfilename");
-					Date crdate = rs.getDate("crdate");
-					int cgroup = rs.getInt("cgroup");
-					int cstep = rs.getInt("cstep");
-					int cindent = rs.getInt("cindent");
-					String cip = rs.getString("cip");
-					cdto = new ConsultantDto(cid, mid, mname, aid, aname, ctitle, ccontent, cfilename, crdate, cgroup, cstep, cindent, cip);
-				}
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
-			}finally {
-				try {
-					if(rs!=null) rs.close();
-					if(pstmt!=null) pstmt.close();
-					if(conn!=null) conn.close();
-				} catch (SQLException e) {
-					System.out.println(e.getMessage());
-				}
 			}
-			return cdto;
 		}
+		return cdto;
+	}
 	// 5. 견적문의 글 수정하기
 	public int consultantModify(ConsultantDto cdto) {
 		int result = FAIL;
@@ -354,5 +354,34 @@ public class ConsultantDao {
 			}
 		}
 		return consultantCnt;
+	}
+	// ccc가 쓴 글의 group
+	public ArrayList<Integer> cgroupList(String mid) {
+		ArrayList<Integer> cgroups = new ArrayList<Integer>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT DISTINCT CGROUP FROM CONSULTANT WHERE MID = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int cgroup = rs.getInt("cgroup");
+				cgroups.add(cgroup);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}finally {
+			try {
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return cgroups;
 	}
 }

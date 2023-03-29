@@ -88,6 +88,10 @@ a{
 	box-sizing: border-box;
 	outline:none;
 }
+#content-form .join-wrap .join-form table td input[type='text'],
+#content-form .join-wrap .join-form table td input[type='password']{
+	-webkit-box-shadow: 0 0 0 1000px #fff inset;
+}
 #content-form .join-wrap .join-form table .mbirth-line{
 	border:1px solid #D1D1D1;
 	border-radius: 5px;

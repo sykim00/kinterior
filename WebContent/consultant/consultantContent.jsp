@@ -23,17 +23,12 @@
 	</script>
 </head>
 <body>
+	${readOk }
 	<c:set var="consults" value="${consultantContent }"/>
-	<c:if test="${(member.mid != consults.mid) && (consults.cgroup != param.cgroup) }">
+	<c:if test="${readOk != 'success' }">
 		<script>
 			alert("질문자 본인만 확인가능합니다.");
 			history.back();
-		</script>
-	</c:if>
-	<c:if test="${empty member }">
-		<script>
-		alert("질문자 본인만 확인가능합니다.");
-		history.back();
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp"/>
@@ -80,10 +75,12 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<button type="button" class="btn2" onclick="location.href='${conPath}/consultModifyView.do?cid=${consults.cid}&pageNum=${param.pageNum }'">수정</button>
-						<button type="reset" class="btn2" onclick="location.href='${conPath}/consultDelete.do?cgroup=${consults.cgroup }&cstep=${consults.cstep }&cindent=${consults.cindent }&pageNum=${param.pageNum }'">삭제</button>
-						<button type="button" class="btn2" onclick="location.href='${conPath}/consultReplyView.do?cid=${consults.cid }&pageNum=${param.pageNum }'">답변</button>
-						<button type="button" class="btn2" onclick="location.href='${conPath}/consultList.do?pageNum=${param.pageNum}'">목록</button>
+						<c:if test="${member.mid eq  consults.mid || admin.aid eq consults.aid}">
+							<button type="button" class="btn2" onclick="location.href='${conPath}/consultModifyView.do?cid=${consults.cid}&pageNum=${param.pageNum }'">수정</button>
+							<button type="reset" class="btn2" onclick="location.href='${conPath}/consultDelete.do?cgroup=${consults.cgroup }&cstep=${consults.cstep }&cindent=${consults.cindent }&pageNum=${param.pageNum }'">삭제</button>													
+						</c:if>
+							<button type="button" class="btn2" onclick="location.href='${conPath}/consultReplyView.do?cid=${consults.cid }&pageNum=${param.pageNum }'">답변</button>						
+							<button type="button" class="btn2" onclick="location.href='${conPath}/consultList.do?pageNum=${param.pageNum}'">목록</button>
 					</td>
 				</tr>
 			</table>

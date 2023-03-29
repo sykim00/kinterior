@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="conPath" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="conPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +20,7 @@
 				<ul>
 					<li><a href="#">시공사례</a></li>
 					<li><a href="#">고객후기</a></li>
-					<li><a href="#">공지사항</a></li>
+					<li><a href="${conPath }/noticeList.do">공지사항</a></li>
 					<li><a href="${conPath }/consultList.do">견적문의</a></li>
 				</ul>
 			</div>
@@ -32,13 +32,13 @@
 			</c:if>
 			<c:if test="${not empty member and empty admin }">
 				<div class="side">
-					<a href="#" class="btn_mypage">마이페이지</a>
+					<a href="${conPath }/mypageView.do" class="btn_mypage">마이페이지</a>
 					<a href="${conPath }/logout.do" class="btn_logout">로그아웃</a>
 				</div>
 			</c:if>
 			<c:if test="${not empty admin and empty member }">
 				<div class="side">
-					<a href="#" class="btn_members">회원관리</a>
+					<a href="${conPath }/allView.do" class="btn_members">회원관리</a>
 					<a href="${conPath }/logout.do" class="btn_adminLogout">관리자나가기</a>
 				</div>
 			</c:if>

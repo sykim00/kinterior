@@ -1,0 +1,109 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'Noto Serif KR', serif;
+}
+li{
+	list-style:none;
+}
+a{
+	text-decoration: none;
+	color: #333;
+	display:block;
+}
+#notice-wrap{
+	width:1000px;
+	margin:0 auto;
+	margin-top:160px;
+	margin-bottom: 100px;
+	min-width:1250px;
+}
+#notice-wrap .notice-title{
+	text-align:center;
+	font-size:25px;
+	font-weight:600;
+	letter-spacing: -1px;
+	color:#333;
+	line-height: 35px;
+	padding-bottom:40px;
+	border-bottom:1px solid #333;
+}
+#notice-wrap .notice-content table{
+	width:100%;
+	margin:0 auto;
+	border-collapse: collapse
+}
+#notice-wrap .notice-content table tr{
+	border-bottom:1px solid #e0e0e0;
+}
+#notice-wrap .notice-content table tr:first-child td{
+	font-weight:500;
+	color:#000;
+}
+#notice-wrap .notice-content table tr td{
+    text-align: center;
+    padding: 15px 10px 15px 30px;
+    font-weight: 400;
+    vertical-align: center;
+    font-size:16px;
+    color:#515151;
+    cursor:pointer;
+}
+#notice-wrap .notice-content table tr .left{
+	text-align:left;
+}
+#notice-wrap .notice-content .paging{
+	text-align: center;
+    margin-top: 50px;
+}
+#notice-wrap .notice-content .paging a{
+	display:inline-block;
+	width:40px;
+	height:40px;
+	font-size:16px;
+	color:#333;
+	line-height:40px;
+	text-align:center;
+	cursor:pointer;
+	vertical-align: middle;
+}
+#notice-wrap .notice-content .paging a.move{
+	font-size:13px;
+	border:
+}
+#notice-wrap .notice-content .paging a.first{
+	background: url(../img/first.png)center/ auto 12px no-repeat;
+	margin:0 3px;
+	border:1px solid #ccc;
+	border-radius: 100%;
+	text-indent: -9999em;
+}
+#notice-wrap .notice-content .paging a.prev{
+	background: url(../img/prev.png)center/ auto 12px no-repeat;
+	margin:0 25px 0 3px;
+	border:1px solid #ccc;
+	border-radius: 100%;
+	text-indent: -9999em;
+}
+#notice-wrap .notice-content .paging a.next{
+	background: url(../img/next.png)center/ auto 12px no-repeat;
+	margin:0 3px 0 25px;
+	border:1px solid #ccc;
+	border-radius: 100%;
+	text-indent: -9999em;
+}
+#notice-wrap .notice-content .paging a.last{
+	background: url(../img/last.png)center/ auto 12px no-repeat;
+	margin:0 3px;
+	border:1px solid #ccc;
+	border-radius: 100%;
+	text-indent: -9999em;
+}
+#notice-wrap .notice-content .paging a.now{
+	margin:0 3px;
+	color:#fff;
+	background:#333;
+	border-radius: 100%;
+}

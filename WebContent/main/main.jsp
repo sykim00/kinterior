@@ -33,6 +33,11 @@
 			hisotry.back();
 		</script>
 	</c:if>
+	<c:if test="${not empty mModifyResult }">
+		<script>
+			alert("${mModifyResult}");
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="main">
 		<div class="mainWrap">

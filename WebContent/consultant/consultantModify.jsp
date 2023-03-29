@@ -27,6 +27,12 @@
 			$(".btn2").mouseleave(function(){
 				$(this).css("color","#000").css("border","1px solid #dbdbdb").css("background","#fff");
 			});
+			$(".conBoard-wrap table tr .focusB").focus(function(){
+				$(this).css("border","1px solid #000000");
+			});
+			$(".conBoard-wrap table tr .focusB").blur(function(){
+				$(this).css("border", "1px solid #b8b8b8");
+			});
 		});
 	</script>
 </head>
@@ -42,8 +48,8 @@
 				<table>
 					<tr>
 						<td><label for="ctitle">견적문의제목</label></td>
-						<td class="left">
-							<input type="text" name="ctitle" class="ctitle" id="ctitle" value="${conBoard.ctitle }">
+						<td class="ctitle-left">
+							<input type="text" name="ctitle" class="ctitle focusB" id="ctitle" value="${conBoard.ctitle }">
 						</td>
 					</tr>
 					<tr>
