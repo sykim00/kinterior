@@ -188,9 +188,9 @@ public class NoticeDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE NOTICE_BOARD SET " + 
+		String sql = "UPDATE NOTICE_BOARD SET  " + 
 				"        nTITLE = ?," + 
-				"        nCONTENT = '?" + 
+				"        nCONTENT = ?" + 
 				"    WHERE nID = ?";
 		try {
 			conn = ds.getConnection();
@@ -200,7 +200,7 @@ public class NoticeDao {
 			pstmt.setInt(3, ndto.getNid());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println(e.getMessage() );
 		}finally {
 			try {
 				if(pstmt!=null) pstmt.close();

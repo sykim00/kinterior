@@ -126,8 +126,6 @@ a{
 }
 #content-form .join-wrap .join-form table .mgender-line label{
 	display:flex;
-	align-items: center;
-	padding: 0 0 5px 0;
 }
 #content-form .join-wrap .join-form table tr:last-child{
 	text-align:center;
@@ -142,5 +140,31 @@ a{
 	font-size:16px;
 	font-weight: 600;
 	padding:0 10px;
+	margin-top:40px;
+}
+#content-form .join-wrap .join-form table .btnStyle2{
+	width:150px;
+	height:60px;
+	border-radius: 5px;
+	border:0px none;
+	background:#000;
+	color:#fff;
+	font-size:16px;
+	font-weight: 600;
+	padding:0 20px;
+	margin-top:40px;
+	margin-left:10px;
+	cursor:pointer;
+}
+#content-form .join-wrap .join-form table .btnStyle2:first-child{
+	width:150px;
+	height:60px;
+	border-radius: 5px;
+	border:1px solid #000;
+	background:#fff;
+	color:#000;
+	font-size:16px;
+	font-weight: 600;
+	padding:0 20px;
 	margin-top:40px;
 }

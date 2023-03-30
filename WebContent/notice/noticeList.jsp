@@ -8,17 +8,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>공지사항</title>
-	<link href="${conPath }/css/font.css" rel="stylesheet" type="text/css">
 	<link href="${conPath }/css/notice.css" rel="stylesheet" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 	<script>
-		
+		$(document).ready(function(){
+			$("tr").click(function(){
+				var nid = Number($(this).children().eq(0).text());
+				if(!isNaN(nid)){
+					location.href="${conPath}/noticeContent.do?nid="+nid+"&pageNum=${pageNum}";
+				}
+			})
+		});
 	</script>
 </head>
 <body>
+	<c:if test="${not empty nModifyResult }">
+		<script>
+			alert("${nModifyResult}");
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="notice-wrap">
+		<div class="notice-top">
 		<div class="notice-title">공지사항</div>
+			<div class="noticeCnt">총 <b>${noticeTotCnt }</b>건</div>
+		</div>
 		<div class="notice-content">
 			<table>
 				<tr>
@@ -68,8 +82,10 @@
 					<a href="${conPath }/noticeList.do?pageNum=${nTotPageCnt}" class="last">2</a>
 			</div>
 		</div>
-		<div class="notice-write">
-			<button onclick="location.href='${conPath}/noticeWriteView.do'">글쓰기</button>
+		<div class="write-btn">
+			<c:if test="${not empty admin }">
+				<button onclick="location.href='${conPath}/noticeWriteView.do'" class="btn-style">글쓰기</button>
+			</c:if>
 		</div>
 	</div>
 	<jsp:include page="../main/footer.jsp"/>

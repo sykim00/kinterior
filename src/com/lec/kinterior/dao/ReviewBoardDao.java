@@ -45,13 +45,14 @@ public class ReviewBoardDao {
 			while(rs.next()) {
 				int rid = rs.getInt("rid");
 				String mid = rs.getString("mid");
+				String mname = rs.getString("mname");
 				String rtitle = rs.getString("rtitle");
 				String rcontent = rs.getString("rcontent");
 				String rphoto = rs.getString("rphoto");
 				Date rdate = rs.getDate("rdate");
 				int rhit = rs.getInt("rhit");
 				String rip = rs.getString("rip");
-				reviews.add(new ReviewBoardDto(rid, mid, rtitle, rcontent, rphoto, rdate, rhit, rip));
+				reviews.add(new ReviewBoardDto(rid, mid, mname, rtitle, rcontent, rphoto, rdate, rhit, rip));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -137,13 +138,14 @@ public class ReviewBoardDao {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				String mid = rs.getString("mid");
+				String mname = rs.getString("mname");
 				String rtitle = rs.getString("rtitle");
 				String rcontent = rs.getString("rcontent");
 				String rphoto = rs.getString("rphoto");
 				Date rdate = rs.getDate("rdate");
 				int rhit = rs.getInt("rhit");
 				String rip = rs.getString("rip");
-				rdto = new ReviewBoardDto(rid, mid, rtitle, rcontent, rphoto, rdate, rhit, rip);
+				rdto = new ReviewBoardDto(rid, mid, mname, rtitle, rcontent, rphoto, rdate, rhit, rip);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -172,13 +174,14 @@ public class ReviewBoardDao {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				String mid = rs.getString("mid");
+				String mname = rs.getString("mname");
 				String rtitle = rs.getString("rtitle");
 				String rcontent = rs.getString("rcontent");
 				String rphoto = rs.getString("rphoto");
 				Date rdate = rs.getDate("rdate");
 				int rhit = rs.getInt("rhit");
 				String rip = rs.getString("rip");
-				rdto = new ReviewBoardDto(rid, mid, rtitle, rcontent, rphoto, rdate, rhit, rip);
+				rdto = new ReviewBoardDto(rid, mid, mname, rtitle, rcontent, rphoto, rdate, rhit, rip);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

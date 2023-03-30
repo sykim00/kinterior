@@ -22,7 +22,12 @@ import com.lec.kinterior.service.MLogoutService;
 import com.lec.kinterior.service.MModifyService;
 import com.lec.kinterior.service.MidConfirmService;
 import com.lec.kinterior.service.MjoinService;
+import com.lec.kinterior.service.NoticeContentService;
 import com.lec.kinterior.service.NoticeListService;
+import com.lec.kinterior.service.NoticeModifyService;
+import com.lec.kinterior.service.NoticeModifyViewService;
+import com.lec.kinterior.service.NoticeWriteService;
+import com.lec.kinterior.service.RBoardListService;
 import com.lec.kinterior.service.Service;
 @WebServlet("*.do")
 public class Controller extends HttpServlet {
@@ -118,6 +123,30 @@ public class Controller extends HttpServlet {
 			service = new NoticeListService();
 			service.execute(request, response);
 			viewPage = "notice/noticeList.jsp";
+		}else if(command.equals("/noticeWriteView.do")) {
+			viewPage = "notice/noticeWrite.jsp";
+		}else if(command.equals("/noticeWrite.do")) {
+			service = new NoticeWriteService();
+			service.execute(request, response);
+			viewPage = "noticeList.do";
+		}else if(command.equals("/noticeContent.do")) {
+			service = new NoticeContentService();
+			service.execute(request, response);
+			viewPage = "notice/noticeContent.jsp";
+		}else if(command.equals("/noticeModifyView.do")) {
+			service = new NoticeModifyViewService();
+			service.execute(request, response);
+			viewPage = "notice/noticeModify.jsp";
+		}else if(command.equals("/noticeModify.do")) {
+			service = new NoticeModifyService();
+			service.execute(request, response);
+			viewPage = "noticeList.do";
+		}else if(command.equals("/rboardList.do")) {
+			service = new RBoardListService();
+			service.execute(request, response);
+			viewPage = "reviewBoard/rboardList.jsp";
+		}else if(command.equals("/rboardWriteView.do")) {
+			viewPage = "reviewBoard/rboardWrite.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

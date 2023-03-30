@@ -1,0 +1,84 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'Noto Serif KR', serif;
+}
+li{
+	list-style:none;
+}
+a{
+	text-decoration: none;
+	color: #333;
+	display:block;
+}
+#notice-form{
+	width:1000px;
+	margin:0 auto;
+	margin-top:160px;
+	margin-bottom: 100px;
+}
+#notice-form .notice-title{
+	text-align:center;
+	font-size:35px;
+	font-weight:600;
+	letter-spacing: -1px;
+	color:#000;
+	line-height: 35px;
+	padding-bottom:40px;
+	border-bottom:1px solid #333;
+}
+#notice-form .notice-wrap table{
+	width:100%;
+	margin:0 auto;
+	border-collapse: collapse
+}
+#notice-form .notice-wrap table tr{
+	border-bottom:1px solid #e0e0e0;
+}
+#notice-form .notice-wrap table tr td{
+    text-align: left;
+    padding: 15px 10px 15px 30px;
+    font-weight: 400;
+    vertical-align: center;
+    font-size:15px;
+    color:#333;
+    cursor:pointer;
+}
+#notice-form .notice-wrap table tr .ntitle{
+	font-size:23px;
+	font-weight:600;
+}
+#notice-form .notice-wrap table tr .ntitle .notice-date{
+	font-size:18px;
+	font-weight:400;
+	color:#999;
+	padding-top:10px;
+}
+#notice-form .notice-wrap table tr .ncontent{
+	font-size: 17px;
+    font-weight: 500;
+    color: #333;
+    line-height: 2.5rem;
+}
+#notice-form .notice-wrap table tr:last-child{
+	border-bottom:0;
+}
+#notice-form .notice-wrap .btn-left{
+	text-align: center;
+}
+#notice-form .notice-wrap button.btn2{
+    width: 10%;
+    height: 40px;
+    border-radius: 5px;
+    border: 0px none;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left:10px;
+    margin-top:20px;
+    cursor:pointer;
+    text-align:center;
+}

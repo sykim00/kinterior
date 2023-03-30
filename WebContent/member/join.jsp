@@ -8,7 +8,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>join-form</title>
-	<link href="${conPath }/css/font.css" rel="stylesheet" type="text/css">
 	<link href="${conPath }/css/join.css" rel="stylesheet" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 	<script src="${conPath }/js/join.js"></script>

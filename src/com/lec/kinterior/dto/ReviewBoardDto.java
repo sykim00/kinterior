@@ -5,16 +5,18 @@ import java.sql.Date;
 public class ReviewBoardDto {
 	private int rid;
 	private String mid;
+	private String mname;
 	private String rtitle;
 	private String rcontent;
 	private String rphoto;
 	private Date rdate;
 	private int rhit;
 	private String rip;
-	public ReviewBoardDto(int rid, String mid, String rtitle, String rcontent, String rphoto, Date rdate, int rhit,
-			String rip) {
+	public ReviewBoardDto(int rid, String mid, String mname, String rtitle, String rcontent, String rphoto, Date rdate,
+			int rhit, String rip) {
 		this.rid = rid;
 		this.mid = mid;
+		this.mname = mname;
 		this.rtitle = rtitle;
 		this.rcontent = rcontent;
 		this.rphoto = rphoto;
@@ -33,6 +35,12 @@ public class ReviewBoardDto {
 	}
 	public void setMid(String mid) {
 		this.mid = mid;
+	}
+	public String getMname() {
+		return mname;
+	}
+	public void setMname(String mname) {
+		this.mname = mname;
 	}
 	public String getRtitle() {
 		return rtitle;
@@ -72,7 +80,7 @@ public class ReviewBoardDto {
 	}
 	@Override
 	public String toString() {
-		return "ReviewBoardDto [rid=" + rid + ", mid=" + mid + ", rtitle=" + rtitle + ", rcontent=" + rcontent
-				+ ", rphoto=" + rphoto + ", rdate=" + rdate + ", rhit=" + rhit + ", rip=" + rip + "]";
+		return "ReviewBoardDto [rid=" + rid + ", mid=" + mid + ", mname=" + mname + ", rtitle=" + rtitle + ", rcontent="
+				+ rcontent + ", rphoto=" + rphoto + ", rdate=" + rdate + ", rhit=" + rhit + ", rip=" + rip + "]";
 	}
 }

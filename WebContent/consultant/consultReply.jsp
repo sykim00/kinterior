@@ -8,7 +8,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>견적문의 게시판 답변글쓰기</title>
-	<link href="${conPath }/css/font.css" rel="stylesheet" type="text/css">
 	<link href="${conPath }/css/consultantWrite.css" rel="stylesheet" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 	<script>
@@ -61,7 +60,12 @@
 					<tr>
 						<th><label for="ctitle">제목</label></th>
 						<td class="reply-left">
-							<input type="text" name="ctitle" class="ctitle focusC" id="ctitle" value="${originconBoard.ctitle }" readonly="readonly">
+							<c:if test="${not empty admin }">						
+								<input type="text" name="ctitle" class="ctitle focusC" id="ctitle" value="${originconBoard.ctitle }" readonly="readonly">
+							</c:if>
+							<c:if test="${not empty member }">
+								<input type="text" name="ctitle" class="ctitle focusC" id="ctitle" value="${originconBoard.ctitle }">
+							</c:if>
 						</td>
 					</tr>
 					<tr>

@@ -21,12 +21,12 @@ a{
 }
 #consultant-wrap .consultant-title{
 	text-align:center;
-	font-size:25px;
+	font-size:35px;
 	font-weight:600;
 	letter-spacing: -1px;
 	color:#333;
 	line-height: 35px;
-	padding-bottom:40px;
+	padding-bottom:60px;
 	border-bottom:1px solid #333;
 }
 #consultant-wrap .consultant-content table{
@@ -46,7 +46,7 @@ a{
     padding: 15px 10px 15px 30px;
     font-weight: 400;
     vertical-align: center;
-    font-size:14px;
+    font-size:15px;
     color:#515151;
     cursor:pointer;
 }
@@ -57,25 +57,66 @@ a{
 	width:16px;
 	height:16px;
 }
-.paging{
+
+#consultant-wrap .consultant-content .paging{
 	text-align: center;
     margin-top: 50px;
 }
-.paging > a{
+#consultant-wrap .consultant-content .paging a{
 	display:inline-block;
-	padding:0 10px;
-	color:#888;
-}
-.paging b{
+	width:40px;
+	height:40px;
+	font-size:16px;
 	color:#333;
+	line-height:40px;
+	text-align:center;
+	cursor:pointer;
+	vertical-align: middle;
+}
+#consultant-wrap .consultant-content .paging a.move{
+	font-size:13px;
+}
+#consultant-wrap .consultant-content .paging a.first{
+	background: url(../img/first.png)center/ auto 12px no-repeat;
+	margin:0 3px;
+	border:1px solid #ccc;
+	border-radius: 100%;
+	text-indent: -9999em;
+}
+#consultant-wrap .consultant-content .paging a.prev{
+	background: url(../img/prev.png)center/ auto 12px no-repeat;
+	margin:0 25px 0 3px;
+	border:1px solid #ccc;
+	border-radius: 100%;
+	text-indent: -9999em;
+}
+#consultant-wrap .consultant-content .paging a.next{
+	background: url(../img/next.png)center/ auto 12px no-repeat;
+	margin:0 3px 0 25px;
+	border:1px solid #ccc;
+	border-radius: 100%;
+	text-indent: -9999em;
+}
+#consultant-wrap .consultant-content .paging a.last{
+	background: url(../img/last.png)center/ auto 12px no-repeat;
+	margin:0 3px;
+	border:1px solid #ccc;
+	border-radius: 100%;
+	text-indent: -9999em;
+}
+#consultant-wrap .consultant-content .paging a.now{
+	margin:0 3px;
+	color:#fff;
+	background:#333;
+	border-radius: 100%;
 }
 #consultant-wrap .write-btn{
 	text-align: right;
 	cursor:pointer;
 }
 #consultant-wrap .write-btn button{
-    width: 20%;
-    height: 60px;
+    width: 10%;
+    height: 55px;
     border-radius: 5px;
     border: 0px none;
     background: #000;

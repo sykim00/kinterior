@@ -13,13 +13,13 @@ a{
 	color: #333;
 	display:block;
 }
-#content-form{
+#notice-form{
 	width:1000px;
 	margin:0 auto;
 	margin-top:160px;
 	margin-bottom: 100px;
 }
-#content-form .conBoard-title{
+#notice-form .notice-title{
 	text-align:center;
 	font-size:35px;
 	font-weight:600;
@@ -29,19 +29,19 @@ a{
 	padding-bottom:40px;
 	border-bottom:1px solid #333;
 }
-#content-form .conBoard-wrap table{
+#notice-form .notice-wrap table{
 	width:100%;
 	margin:0 auto;
 	border-collapse: collapse
 }
-#content-form .conBoard-wrap table tr{
-	border-bottom:1px solid #e0e0e0;
+#notice-form .notice-wrap table tr{
+	/*border-bottom:1px solid #e0e0e0;*/
 }
-#content-form .conBoard-wrap table tr .ctitle{
+#notice-form .notice-wrap table tr .ntitle{
 	width:739px;
 	text-align: left;
 }
-#content-form .conBoard-wrap table tr th{
+#notice-form .notice-wrap table tr th{
 	font-weight:600;
 	text-align: center;
     padding: 15px 10px 15px 30px;
@@ -51,7 +51,7 @@ a{
     color:#515151;
     cursor:pointer;
 }
-#content-form .conBoard-wrap table tr td{
+#notice-form .notice-wrap table tr td{
     text-align: center;
     padding: 15px 10px 15px 30px;
     font-weight: 400;
@@ -60,33 +60,18 @@ a{
     color:#515151;
     cursor:pointer;
 }
-#content-form .conBoard-wrap table tr td .focusB{
+#notice-form .notice-wrap table tr td .focusB{
 	box-shadow:0 0 6px rgba(0, 0,0,0.1);
 	-webkit-box-shadow: 0 0 0 1000px #fff inset;
 	border:1px solid #b8b8b8;
 }
-#content-form .conBoard-wrap table tr td .focusC{
-	box-shadow:0 0 6px rgba(0, 0,0,0.1);
-	-webkit-box-shadow: 0 0 0 1000px #fff inset;
+#notice-form .notice-wrap table tr td textarea{
 	border:1px solid #b8b8b8;
 }
-#content-form .conBoard-wrap table tr td textarea{
-	border:1px solid #b8b8b8;
-}
-#content-form .conBoard-wrap table tr:last-child{
+#notice-form .notice-wrap table tr:last-child{
 	border-bottom:0;
 }
-#content-form .conBoard-wrap input[type=file]::file-selector-button{
-	background:#000;
-	color:#fff;
-	border:0px;
-	width:100px;
-	height:30px;
-	border-radius: 5px;
-	cursor:pointer;
-	font-size:0;
-}
-#content-form .conBoard-wrap button.btnStyle{
+#notice-form .notice-wrap button.btnStyle{
     width: 10%;
     height: 40px;
     border-radius: 5px;
@@ -99,7 +84,7 @@ a{
     margin-top:20px;
     cursor:pointer;
 }
-#content-form .conBoard-wrap button.btn2{
+#notice-form .notice-wrap button.btn2{
     width: 10%;
     height: 40px;
     border-radius: 5px;

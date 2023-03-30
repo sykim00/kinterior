@@ -8,7 +8,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>견적문의 글 상세 보기</title>
-	<link href="${conPath }/css/font.css" rel="stylesheet" type="text/css">
 	<link href="${conPath }/css/consultantWrite.css" rel="stylesheet" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 	<script>
@@ -59,7 +58,7 @@
 				<tr>
 					<th>견적문의내용</th>
 					<td class="left">
-						${consults.ccontent }
+						<pre>${consults.ccontent }</pre>
 					</td>
 				</tr>
 				<tr>

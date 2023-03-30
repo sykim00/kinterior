@@ -8,10 +8,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>modify</title>
-	<link href="${conPath }/css/font.css" rel="stylesheet" type="text/css">
 	<link href="${conPath }/css/join.css" rel="stylesheet" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-	<!-- <script src="${conPath }/js/modify.js"></script> -->
 	<script>
 	$(document).ready(function(){
 		$(".join-form table tr .focusB").focus(function(){
@@ -28,7 +26,7 @@
 	const patternMail = /^\w+@\w+(\.\w+){1,2}$/; // 이메일 정규표현식
 	var today = new Date();
 	var yearNow = today.getFullYear(); // 올해 년도
-	$("#oldmpw").keyup(function(){
+	$(".oldmpw").keyup(function(){
 		var oldmpw = $(this).val();
 		if(!oldmpw){
 			$(".oldmpwResult").html("<p>필수 정보입니다.</p>");
@@ -38,7 +36,7 @@
 			$(".oldmpwResult").html("");
 		};
 	}); //mpwChk-keyup 이벤트
-	$("#mpw").keyup(function(){
+	$(".mpw").keyup(function(){
 		var mpw = $(this).val();
 		if(mpw.length > 1 && !mpw.match(patternPw)){
 			$(".mpwResult").html("<p>8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</p>");
@@ -46,7 +44,7 @@
 			$(".mpwResult").html("");
 		};
 	}); //mpw-keyup 이벤트
-	$("#mtel").keyup(function(){
+	$(".mtel").keyup(function(){
 		var mtel = $(this).val();
 		if(!mtel){
 			$(".mtelResult").html("<p>필수 정보입니다.</p>");
@@ -72,7 +70,7 @@
 			$(".mbirthResult").html("");
 		}
 	});// mibrthDa-keyup 이벤트
-	$("#memail").keyup(function(){
+	$(".memail").keyup(function(){
 		var memail = $(this).val();
 		if(!memail){
 			$(".memailResult").html("<p>필수 정보입니다.</p>");
@@ -82,7 +80,7 @@
 			$(".memailResult").html("");
 		}
 	}); // memail-keyup 이벤트
-	$("#maddress").keyup(function(){
+	$(".maddress").keyup(function(){
 		var maddress = $(this).val();
 		if(!maddress || maddress.length < 11){
 			$(".maddressResult").html("<p>필수 정보입니다.</p>");
@@ -91,13 +89,13 @@
 		}
 	}); // maddress-keyup 이벤트
 	$("form").submit(function(){
-		var oldmpw = $("#oldmpw").val();
+		var oldmpw = $(".oldmpw").val();
 		var mtelResult = $(".mtelResult").text().trim();
 		var memailResult = $(".memailResult").text().trim();
 		var maddressResult = $(".maddressResult").text().trim();
 		if(oldmpw != "${member.mpw}"){
 			alert("현 비밀번호를 확인하세요.");
-			$("#oldmpw").focus();
+			$(".oldmpw").focus();
 			return false;
 		}else if(mtelResult != ""){
 			alert("전화번호를 확인하세요.");
@@ -117,47 +115,49 @@
 	</script>
 </head>
 <body>
+	<c:if test="${empty member }">
+		<script>location.href="${conPath}/loginView.do?next=mypageModify.do";</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="content-form">
-		<div class="join-title">정보수정</div>
+		<div class="join-title">개인 정보 수정</div>
 		<div class="join-wrap">
 			<div class="join-form-line">
-				<span class="point">*</span>필수입력사항
 			</div>
 			<div class="join-form">
 				<form action="modify.do" method="post">
 				<input type="hidden" name="dbMpw" value="${member.mpw}">
 					<table>
 						<tr>
-							<th><label for="mid">아이디<span class="point">*</span></label></th>
+							<th><label for="mid">아이디</label></th>
 							<td>
-								<input type="text" name="mid" id="mid" class="mid focusB" value="${member.mid }" readonly="readonly">
+								<input type="text" name="mid" id="mid" class="mid focusB" value="${member.mid }" readonly="readonly" placeholder="아이디를 입력해주세요.">
 							</td>
 						</tr>
 						<tr>
-							<th><label for="oldmpw">현 비밀번호<span class="point">*</span></label></th>
+							<th><label for="oldmpw">현재 비밀번호</label></th>
 							<td>
-								<input type="password" name="oldmpw" id="oldmpw" class="oldmpw focusB">
+								<input type="password" name="oldmpw" id="oldmpw" class="oldmpw focusB" placeholder="비밀번호를 입력해주세요.">
 								<div class="oldmpwResult bottom"></div>
 							</td>
 						</tr>
 						<tr>
 							<th><label for="mpw">새 비밀번호</label></th>
 							<td>
-								<input type="password" name="mpw" id="mpw" class="mpw focusB">
+								<input type="password" name="mpw" id="mpw" class="mpw focusB" placeholder="새 비밀번호를 입력해주세요.">
 								<div class="mpwResult bottom"></div>
 							</td>
 						</tr>
 						<tr>
-							<th><label for="mname">이름<span class="point">*</span></label></th>
+							<th><label for="mname">이름</label></th>
 							<td>
-								<input type="text" name="mname" id="mname" class="mname focusB" value="${member.mname }" readonly="readonly">
+								<input type="text" name="mname" id="mname" class="mname focusB" value="${member.mname }" readonly="readonly" placeholder="이름을 입력해주세요.">
 							</td>
 						</tr>
 						<tr>
-							<th><label for="mtel">전화번호<span class="point">*</span></label></th>
+							<th><label for="mtel">전화번호</label></th>
 							<td>
-								<input type="text" name="mtel" id="mtel" class="mtel focusB" value="${member.mtel }">
+								<input type="text" name="mtel" id="mtel" class="mtel focusB" value="${member.mtel }" placeholder="예 : 02-000-0000 또는 010-0000-0000">
 								<div class="mtelResult bottom"></div>
 							</td>
 						</tr>
@@ -175,9 +175,9 @@
 							</td>
 						</tr>
 						<tr>
-							<th><label for="memail">이메일<span class="point">*</span></label></th>
+							<th><label for="memail">이메일</label></th>
 							<td>
-								<input type="text" name="memail" id="memail" class="memail focusB" value="${member.memail}">
+								<input type="text" name="memail" id="memail" class="memail focusB" value="${member.memail}" placeholder="예 : kinterior@interior.com">
 								<div class="memailResult bottom"></div>
 							</td>
 						</tr>
@@ -186,19 +186,20 @@
 							<td class="mgender-line">
 								<input type="radio" name="mgender" value="m" id="mgender-m" class="radio_btn"><label for="mgender-m">남자</label>		
 								<input type="radio" name="mgender" value="f" id="mgender-f" class="radio_btn"><label for="mgender-f">여자</label>
-								<input type="radio" name="mgender" value="n" id="mgender-n" class="radio_btn" checked="checked"><label for="mgender-n">선택안함</label>
+								<input type="radio" name="mgender" value="n" id="mgender-n" class="radio_btn"><label for="mgender-n">선택안함</label>
 							</td>
 						</tr>
 						<tr>
-							<th><label for="maddress">주소<span class="point">*</span></label></th>
+							<th><label for="maddress">주소</label></th>
 							<td>
-								<input type="text" name="maddress" id="maddress" class="maddress focusB" value="${member.maddress }">
+								<input type="text" name="maddress" id="maddress" class="maddress focusB" value="${member.maddress }" placeholder="주소를 입력해주세요.">
 								<div class="maddressResult bottom"></div>
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2">
-								<button type="submit" class="btnStyle">수정하기</button>
+							<td colspan="3">
+								<button type="button" class="btnStyle2" onclick="${conPath}/withdrawal.do">탈퇴하기</button>
+								<button type="submit" class="btnStyle2">회원정보수정</button>
 							</td>
 						</tr>
 					</table>

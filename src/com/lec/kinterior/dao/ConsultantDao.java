@@ -33,11 +33,11 @@ public class ConsultantDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "SELECT V.*, " + 
-					"    (SELECT mNAME FROM MEMBER M WHERE V.mID = M.mID) mNAME," + 
-					"    (SELECT aNAME FROM ADMIN A WHERE V.aID = A.aID) aNAME" + 
-					"        FROM (SELECT ROWNUM RN, C.*" + 
-					"                FROM (SELECT * FROM CONSULTANT ORDER BY cGROUP DESC, cINDENT, cRDATE DESC)C)V" + 
-					"        WHERE RN BETWEEN ? AND ?";
+				"    (SELECT mNAME FROM MEMBER M WHERE V.mID = M.mID) mNAME," + 
+				"    (SELECT aNAME FROM ADMIN A WHERE V.aID = A.aID) aNAME" + 
+				"        FROM (SELECT ROWNUM RN, C.*" + 
+				"            FROM (SELECT * FROM CONSULTANT ORDER BY cGROUP DESC, cSTEP)C)V" + 
+				"        WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);

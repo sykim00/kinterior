@@ -8,7 +8,6 @@ pageEncoding="UTF-8"%>
 <head>
 	<meta charset="UTF-8">
 	<title>회원리스트</title>
-	<link href="${conPath }/css/font.css" rel="stylesheet" type="text/css">
 	<link href="${conPath }/css/mallview.css" rel="stylesheet" type="text/css">
 	<style>
 		

@@ -30,12 +30,12 @@
 	<c:if test="${not empty adminLoginResult }">
 		<script>
 			alert("${adminLoginResult}");
-			hisotry.back();
+			location.href="${conPath}/adminLoginView.do";
 		</script>
 	</c:if>
-	<c:if test="${not empty mModifyResult }">
+	<c:if test="${not empty mModifySuccess }">
 		<script>
-			alert("${mModifyResult}");
+			alert("${mModifySuccess}");
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp"/>

@@ -8,16 +8,14 @@ pageEncoding="UTF-8"%>
 <head>
 	<meta charset="UTF-8">
 	<title>견적문의 게시판</title>
-	<link href="${conPath }/css/font.css" rel="stylesheet" type="text/css">
 	<link href="${conPath }/css/consultantList.css" rel="stylesheet" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 	<script>
 		$(document).ready(function(){
 			$("tr").click(function(){
 				var cid = Number($(this).children().eq(0).text());
-				var cgroup = Number($(this).children().eq(1).text());
 				if(!isNaN(cid)){
-					location.href="${conPath}/consultContent.do?cid="+cid+"&cgroup="+cgroup+"&pageNum=${pageNum}";
+					location.href="${conPath}/consultContent.do?cid="+cid+"&pageNum=${pageNum}";
 				}
 			});
 		});
@@ -51,16 +49,22 @@ pageEncoding="UTF-8"%>
 								</c:forEach>
 								<c:forEach var="i" begin="1" end="${conBoard.cindent}">
 									<c:if test="${i == conBoard.cindent}">
-										&nbsp;
 										<c:if test="${not empty conBoard.aid }">
+										&nbsp;&nbsp;&nbsp;
+											<img src="${conPath }/img/indent_img.png">
 											<img src="${conPath }/img/re_img.jpg" alt="답변글 이미지">
+										</c:if>
+										<c:if test="${not empty conBoard.mid }">
+										&nbsp;
+											<img src="${conPath }/img/indent_img.png">											
 										</c:if>
 										<img src="${conPath }/img/lock_icon.png">
 									</c:if>
 									<c:if test="${i != conBoard.cindent}">
-										&nbsp; &nbsp; 
+									&nbsp;
 										<c:if test="${not empty conBoard.mid }">
-											<img src="${conPath }/img/indent_img.png">											
+											&nbsp; &nbsp; &nbsp;
+											<%-- <img src="${conPath }/img/indent_img.png">	 --%>										
 										</c:if>
 									</c:if>
 								</c:forEach>
@@ -81,41 +85,34 @@ pageEncoding="UTF-8"%>
 				</c:if>
 			</table>
 			<div class="paging">
-				<a href="${conPath }/consultList.do?pageNum=1">&lt;&lt;</a>
+				<a href="${conPath }/consultList.do?pageNum=1" class="first">1</a>
 				<c:if test="${startPage > BLOCKSIZE }">
-					<a href="${conPath }/consultList.do?pageNum=${startPage-1}">&lt;</a>
+					<a href="${conPath }/consultList.do?pageNum=${startPage-1}" class="prev">1</a>
 				</c:if>
 				<c:if test="${BLOCKSIZE >= startPage }">
-					<a>&lt;</a>
+					<a class="prev">1</a>
 				</c:if>
-				&nbsp;
 				<c:forEach var="i" begin="${startPage }" end="${endPage }">
 					<c:if test="${i eq pageNum }">
-						<b> ${i} </b>
+						<a class="now">${i }</a>
 					</c:if>
 					<c:if test="${i != pageNum }">
-						<a href="${conPath }/consultList.do?pageNum=${i}"> ${i} </a>
+						<a href="${conPath }/consultList.do?pageNum=${i}" class="move"> ${i} </a>
 					</c:if>
 				</c:forEach>
-				&nbsp;
-				<c:if test="${BLOCKSIZE >= endPage }">
-					<a>&gt;</a>
-				</c:if>
 				<c:if test="${endPage < pageTotCnt }">
-					<a href="${conPath }/consultList.do?pageNum=${endPage+1}">&gt;</a>
+					<a href="${conPath }/consultList.do?pageNum=${endPage+1}" class="next">1</a>
 				</c:if>
 				<c:if test="${endPage eq pageTotCnt}">
-					<a href="${conPath }/consultList.do?pageNum=${pageTotCnt}">&gt;&gt;</a>
+					<a class="next">1</a>
 				</c:if>
+					<a href="${conPath }/consultList.do?pageNum=${pageTotCnt}" class="last">1</a>
 			</div>
 		</div>
 		<div class="write-btn">
-			<c:if test="${not empty member || empty member || not empty admin }">			
-				<button type="button" onclick="location.href='${conPath}/consultWriteView.do'">글쓰기</button>
+			<c:if test="${not empty member || empty admin }">			
+				<button type="button" onclick="location.href='${conPath}/consultWriteView.do'">문의하기</button>
 			</c:if>
-<%-- 			<c:if test="${not empty member }">
-				<button type="button" onclick="location.href='${conPath}/consultWriteView.do'">글쓰기</button>
-			</c:if> --%>
 		</div>
 	</div>
 	<jsp:include page="../main/footer.jsp"/>

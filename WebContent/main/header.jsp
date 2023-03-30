@@ -19,7 +19,7 @@
 			<div class="gnb">
 				<ul>
 					<li><a href="#">시공사례</a></li>
-					<li><a href="#">고객후기</a></li>
+					<li><a href="${conPath }/rboardList.do">고객후기</a></li>
 					<li><a href="${conPath }/noticeList.do">공지사항</a></li>
 					<li><a href="${conPath }/consultList.do">견적문의</a></li>
 				</ul>
