@@ -12,13 +12,13 @@
 - 프로젝트 소개 : 인테리어 회사 사이트로 회원가입한 회원만 이용할 수 있는 시스템입니다.
 
 ## 목차
-[1. 작업분할 구조도]()<br>
+[1. 작업분할 구조도](https://github.com/sykim00/kinterior#%EC%9E%91%EC%97%85%EB%B6%84%ED%95%A0-%EA%B5%AC%EC%A1%B0%EB%8F%84)<br>
 [2. Gantt chart]()<br>
-[3. 이용자 권한]()<br>
-[4. Usecase Diagram]()<br>
-[5. Sequence Diagram]()<br>
-[6. 기능정의서]()<br>
-[7. E-R Diagram]()<br>
+[3. 이용자 권한](https://github.com/sykim00/kinterior#%EC%9D%B4%EC%9A%A9%EC%9E%90-%EA%B6%8C%ED%95%9C)<br>
+[4. Usecase Diagram](https://github.com/sykim00/kinterior#usecase-diagram)<br>
+[5. Sequence Diagram](https://github.com/sykim00/kinterior#sequence-diagram)<br>
+[6. 기능정의서](https://github.com/sykim00/kinterior#%EA%B8%B0%EB%8A%A5%EC%A0%95%EC%9D%98%EC%84%9C)<br>
+[7. E-R Diagram](https://github.com/sykim00/kinterior#e-r-diagram)<br>
 
 ## 작업분할 구조도
 ![01_작업분할구조도](https://user-images.githubusercontent.com/110598034/229011784-cda37f89-cc2a-4252-b49e-e246903ee6cb.JPG)
