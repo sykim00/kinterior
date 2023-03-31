@@ -13,7 +13,7 @@
 
 ## 목차
 [1. 작업분할 구조도]
-(https://github.com/sykim00/kinterior/blob/main/README.md#%EC%9E%91%EC%97%85%EB%B6%84%ED%95%A0%EB%8F%84)<br>
+<a href="https://github.com/sykim00/kinterior/blob/main/README.md#%EC%9E%91%EC%97%85%EB%B6%84%ED%95%A0%EB%8F%84"></a><br>
 [2. Gantt chart]()<br>
 [3. 이용자 권한]
 (https://github.com/sykim00/kinterior/blob/main/README.md#%EC%9D%B4%EC%9A%A9%EC%9E%90%EA%B6%8C%ED%95%9C)<br>
@@ -27,3 +27,4 @@
 (https://github.com/sykim00/kinterior/blob/main/README.md#e-r-diagram)<br>
 
 
+http://localhost:8092/
