@@ -13,12 +13,18 @@
 
 ## 목차
 [1. 작업분할 구조도]()<br>
+https://github.com/sykim00/kinterior/blob/main/README.md#%EC%9E%91%EC%97%85%EB%B6%84%ED%95%A0%EB%8F%84
 [2. Gantt chart]()<br>
 [3. 이용자 권한]()<br>
+https://github.com/sykim00/kinterior/blob/main/README.md#%EC%9D%B4%EC%9A%A9%EC%9E%90%EA%B6%8C%ED%95%9C
 [4. Usecase Diagram]()<br>
+https://github.com/sykim00/kinterior/blob/main/README.md#usecasediagram
 [5. Sequence Diagram]()<br>
+https://github.com/sykim00/kinterior/blob/main/README.md#sequencediagram
 [6. 기능정의서]()<br>
+https://github.com/sykim00/kinterior/blob/main/README.md#%EA%B8%B0%EB%8A%A5%EC%A0%95%EC%9D%98%EC%84%9C
 [7. E-R Diagram]()<br>
+https://github.com/sykim00/kinterior/blob/main/README.md#e-r-diagram
 
 ## 작업분할도
 ![01_작업분할구조도](https://user-images.githubusercontent.com/110598034/228998773-383c361e-7f6e-434b-a40a-be65bff3e876.JPG)
