@@ -19,3 +19,23 @@
 [5. Sequence Diagram]()<br>
 [6. 기능정의서]()<br>
 [7. E-R Diagram]()<br>
+
+## 작업분할 구조도
+![01_작업분할구조도](https://user-images.githubusercontent.com/110598034/229011784-cda37f89-cc2a-4252-b49e-e246903ee6cb.JPG)
+![02_작업분할구조도](https://user-images.githubusercontent.com/110598034/229011862-2b4ff1cf-4901-4941-8702-59f3a6ae96c1.JPG)
+
+## 이용자 권한
+![03_이용자권한](https://user-images.githubusercontent.com/110598034/229011920-6defa092-a286-4e4e-893e-b614793e3111.JPG)
+
+## Usecase Diagram
+![04_useCaseDiagram](https://user-images.githubusercontent.com/110598034/229011965-a00b8dca-cd31-4f79-b8e6-af67c43fa157.JPG)
+
+## Sequence Diagram
+![05_sequenceDiagram](https://user-images.githubusercontent.com/110598034/229012007-7503d0e0-6955-4ecc-8033-e56aa0099f0b.JPG)
+![06_sequenceDiagram](https://user-images.githubusercontent.com/110598034/229012011-7fb405ef-a789-42a8-8065-b17a89c36846.JPG)
+
+## 기능정의서
+![07_기능정의서](https://user-images.githubusercontent.com/110598034/229012048-a2894dfb-cbe6-4efe-bb36-83663f959c98.jpg)
+
+## E-R Diagram
+![08_E-R Diagram](https://user-images.githubusercontent.com/110598034/229012120-645876bd-8fac-4e9d-a37b-81c177b20abb.png)
