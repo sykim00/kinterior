@@ -22,6 +22,16 @@ pageEncoding="UTF-8"%>
 	</script>
 </head>
 <body>
+	<c:if test="${not empty consultantWriteResult }">
+		<script>
+		alert("${consultantWriteResult}");
+		</script>
+	</c:if>
+	<c:if test="${not empty conModifyResult}">
+		<script>
+			alert("${conModifyResult }");
+		</script>		
+	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="consultant-wrap">
 		<div class="consultant-title">견적문의 게시판</div>

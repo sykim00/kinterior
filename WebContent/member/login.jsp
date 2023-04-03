@@ -32,11 +32,11 @@
 			<input type="hidden" name="next" value="${param.next }">
 				<table>
 					<tr>
-						<td><input type="text" name="mid" class="mid focusB" placeholder="아이디를 입력해주세요."></td>
+						<td><input type="text" name="mid" class="focusB" placeholder="아이디를 입력해주세요."></td>
 					</tr>
 					<tr>
 						<td>
-							<input type="password" name="mpw" class="mpw focusB" placeholder="비밀번호를 입력해주세요.">
+							<input type="password" name="mpw" class="focusB" placeholder="비밀번호를 입력해주세요.">
 						</td>
 					</tr>
 					<tr>
@@ -51,4 +51,3 @@
 	</div>
 	<jsp:include page="../main/footer.jsp"/>
 </body>
-</html>

@@ -12,14 +12,6 @@
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 	<script>
 		$(document).ready(function(){
-			$("#ntitle").keyup(function(){
-				var ntitle = $(this).val();
-				if(!ntitle){
-					alert("공지사항 제목을 꼭 입력해주세요.");
-					ntitle.focus();
-					return false;
-				}
-			});
 			$(".btn2").mouseover(function(){
 				$(this).css("background","#e9e9e9").css("color","#000").css("border","1px solid #dbdbdb");
 			});
@@ -32,6 +24,19 @@
 			$(".notice-wrap table tr td .focusB").blur(function(){
 				$(this).css("border", "1px solid #b8b8b8");
 			});
+			$("form").submit(function(){
+				var ntitle = $(".ntitle").val();
+				var ncontent = $(".ncontent").val();
+				if(ntitle==""){
+					alert("공지사항 제목을 입력해주세요.");
+					$("#title").focus();
+					return false;
+				}else if(ncontent==""){
+					alert("공지사항 본문을 입력해주세요.");
+					$("#content").focus();
+					return false;
+				}
+			});
 		});
 	</script>
 </head>
@@ -43,15 +48,15 @@
 			<form action="noticeWrite.do" method="post">
 				<table>
 					<tr>
-						<th><label for="ntitle">제목</label></th>
+						<th><label for="title">제목</label></th>
 						<td class="left">
-							<input type="text" name="ntitle" class="ntitle focusB" id="ntitle">
+							<input type="text" name="ntitle" class="ntitle focusB" id="title">
 						</td>
 					</tr>
 					<tr>
-						<th><label for="ncontent">본문</label></th>
+						<th><label for="content">본문</label></th>
 						<td>
-							<textarea name="ncontent" id="ncontent" rows="8" cols="90" class="focusB"></textarea>
+							<textarea name="ncontent" id="content" rows="8" cols="90" class="ncontent focusB"></textarea>
 						</td>
 					</tr>
 					<tr>

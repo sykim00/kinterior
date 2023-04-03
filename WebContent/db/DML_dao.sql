@@ -105,13 +105,6 @@ SELECT * FROM
     (SELECT ROWNUM RN, R.* FROM (SELECT R.*, mNAME FROM REVIEW_BOARD R, MEMBER M 
                                 WHERE R.mID = M.mID ORDER BY rID DESC)R)
     WHERE RN BETWEEN 1 AND 3; 
-    
-    
-SELECT * FROM 
-    (SELECT ROWNUM RN, R.* FROM (SELECT R.*, mNAME FROM REVIEW_BOARD R, MEMBER M 
-                                WHERE R.mID = M.mID ORDER BY rID DESC)R)
-    WHERE RN BETWEEN 1 AND 3 AND mid = 'aaa';     
-    
 -- 2. 리뷰글 갯수
 SELECT COUNT(*)CNT FROM REVIEW_BOARD;
 -- 3. 리뷰글쓰기(원글쓰기)
@@ -140,8 +133,6 @@ SELECT * FROM
     (SELECT ROWNUM RN, P.* FROM (SELECT P.*, aNAME FROM INTERIOR_PRODUCT P, ADMIN A
                                  WHERE P.aID = A.aID ORDER BY pRDATE DESC)P)
     WHERE RN BETWEEN 1 AND 3;
-    
-
 -- 3. 시공사례글쓰기(원글쓰기)
 INSERT INTO INTERIOR_PRODUCT (pID, aID, pTITLE, pCONTENT, pFILENAME)
     VALUES (INTERIOR_PRODUCT_SEQ.NEXTVAL, 'admin', '29평 아파트', '29평', '2.jpg');
@@ -155,6 +146,9 @@ UPDATE INTERIOR_PRODUCT SET
     WHERE pID = 1;
 -- 6. 시공사례글 삭제하기
 DELETE FROM INTERIOR_PRODUCT WHERE pID = 1;
+
+-- 7. 시공사례 글 갯수
+SELECT COUNT(*)CNT FROM INTERIOR_PRODUCT;
 --------------------------------- Notice_BoardDao에 들어갈 query(ADMIN) ---------------------------------
 -- 1. 공지사항글 목록 출력
 SELECT * FROM 
@@ -168,7 +162,7 @@ INSERT INTO NOTICE_BOARD (nID, aID, nTITLE, nCONTENT)
 -- 3. 공지사항글번호(nID)로 전체내용(NoticeDto) 가져오기
 SELECT N.*, aNAME FROM NOTICE_BOARD N, ADMIN A WHERE N.aID = A.aID AND nID = 1;
 -- 4. 공지사항글 수정하기
-UPDATE NOTICE_BOARD SET  
+UPDATE NOTICE_BOARD SET 
         nTITLE = 'KINTERIOR 홈페이지 신규 리뉴얼 안내',
         nCONTENT = '안녕하십니까? 2023년 3월 30일, KINTERIOR 홈페이지가 새로운 모습으로 문을 엽니다. 많은 성원과 관심 부탁드립니다. 감사합니다.'
     WHERE nID = 1;

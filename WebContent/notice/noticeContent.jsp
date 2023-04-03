@@ -32,7 +32,7 @@
 					<td class="btn-left">
 						<c:if test="${not empty admin }">
 							<button class="btn2" onclick="location.href='${conPath}/noticeModifyView.do?nid=${noticeContent.nid}&pageNum=${param.pageNum }'">수정</button>
-							<button class="btn2" onclick="location.href='${conPath}/noticeDelete.do?pageNum=${param.pageNum }'">삭제</button>
+							<button class="btn2" onclick="location.href='${conPath}/noticeDelete.do?nid=${noticeContent.nid }&pageNum=${param.pageNum }'">삭제</button>
 						</c:if>
 						<button class="btn2" onclick="location.href='${conPath}/noticeList.do?pageNum=${param.pageNum}'">목록</button>
 					</td>

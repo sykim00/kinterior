@@ -210,4 +210,29 @@ public class InteriorDao {
 		}
 		return result;
 	}
+	public int interiorTotCnt() {
+		int interiorTotCnt = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT COUNT(*)CNT FROM INTERIOR_PRODUCT";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			interiorTotCnt = rs.getInt("cnt");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}finally {
+			try {
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return interiorTotCnt;
+	}
 }

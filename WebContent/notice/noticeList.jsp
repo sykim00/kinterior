@@ -27,6 +27,11 @@
 			alert("${nModifyResult}");
 		</script>
 	</c:if>
+	<c:if test="${not empty deleteResult }">
+		<script>
+			alert("${deleteResult}");
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="notice-wrap">
 		<div class="notice-top">

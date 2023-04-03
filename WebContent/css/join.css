@@ -90,6 +90,7 @@ a{
 }
 #content-form .join-wrap .join-form table td input[type='text'],
 #content-form .join-wrap .join-form table td input[type='password']{
+	box-shadow:0 0 0 0;
 	-webkit-box-shadow: 0 0 0 1000px #fff inset;
 }
 #content-form .join-wrap .join-form table .mbirth-line{

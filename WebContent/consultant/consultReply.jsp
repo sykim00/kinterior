@@ -8,18 +8,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>견적문의 게시판 답변글쓰기</title>
+	<link href="${conPath }/css/font.css" rel="stylesheet" type="text/css">
 	<link href="${conPath }/css/consultantWrite.css" rel="stylesheet" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 	<script>
 		$(document).ready(function(){
-			$("#ctitle").keyup(function(){
-				var ctitle = $(this).val();
-				if(!ctitle){
-					alert("제목을 꼭 입력해주세요.");
-					ctitle.focus();
-					return false;
-				}
-			});
 			$(".btn2").mouseover(function(){
 				$(this).css("background","#e9e9e9").css("color","#000").css("border","1px solid #dbdbdb");
 			});
@@ -38,7 +31,7 @@
 <body>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="content-form">
-		<div class="conBoard-title">${originconBoard.cid }번글의 견적문의 답변글쓰기</div>
+		<div class="conBoard-title">${originconBoard.cid }번 글의 견적문의 답변 글쓰기</div>
 		<div class="conBoard-wrap">
 			<form action="consultReply.do" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="cgroup" value="${originconBoard.cgroup }">
@@ -58,20 +51,15 @@
 						</td>
 					</tr>
 					<tr>
-						<th><label for="ctitle">제목</label></th>
+						<th><label for="title">제목</label></th>
 						<td class="reply-left">
-							<c:if test="${not empty admin }">						
-								<input type="text" name="ctitle" class="ctitle focusC" id="ctitle" value="${originconBoard.ctitle }" readonly="readonly">
-							</c:if>
-							<c:if test="${not empty member }">
-								<input type="text" name="ctitle" class="ctitle focusC" id="ctitle" value="${originconBoard.ctitle }">
-							</c:if>
+							<input type="text" name="ctitle" class="ctitle focusC" id="title" value="${originconBoard.ctitle }" readonly="readonly">
 						</td>
 					</tr>
 					<tr>
-						<th><label for="ccontent">본문</label></th>
+						<th><label for="content">본문</label></th>
 						<td>
-							<textarea name="ccontent" id="ccontent" rows="8" cols="90"></textarea>
+							<textarea name="ccontent" id="content" rows="8" cols="90"></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -81,7 +69,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td colspan="2" style="text-align:center;">
 							<button type="submit" class="btnStyle">답변쓰기</button>
 							<button type="reset" class="btnStyle btn2">취소</button>
 							<button type="button" class="btnStyle btn2" onclick="location.href='${conPath}/consultList.do'">목록</button>

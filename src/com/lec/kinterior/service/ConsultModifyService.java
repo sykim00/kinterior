@@ -53,7 +53,7 @@ public class ConsultModifyService implements Service {
 			File serverFile = new File(path + "/" + cfilename);
 			try {
 				is = new FileInputStream(serverFile);
-				os = new FileOutputStream("C:/sykim/source/first_project/kinterior/WebContent/consultantBoardFileUp/" + cfilename);
+				os = new FileOutputStream("/Users/gimsoyeon/sykim/source/project_1/k_interior/WebContent/consultantBoardFileUp/"+cfilename);
 				byte[] bs = new byte[(int) serverFile.length()];
 				while(true) {
 					int readByteCnt = is.read(bs);

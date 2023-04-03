@@ -41,7 +41,7 @@ $(document).ready(function(){
 			});
 		};
 	}); // mid-keyup이벤트
-	var mpw, mpwChk;
+	var mpw, mpwChk, mtel, mname, memail, maddress;
 	$("#mpw").keyup(function(){
 		mpw = $(this).val();
 		if(!mpw){
@@ -67,7 +67,7 @@ $(document).ready(function(){
 		};
 	}); //mpwChk-keyup 이벤트
 	$("#mname").keyup(function(){
-		var mname = $(this).val();
+		mname = $(this).val();
 		if(!mname){
 			$(".mnameResult").html("<p>필수 정보입니다.</p>");
 		}else if(mname.length < 0 || !mname.match(patternName)){
@@ -81,7 +81,7 @@ $(document).ready(function(){
 		}
 	}); //mname-keyup 이벤트
 	$("#mtel").keyup(function(){
-		var mtel = $(this).val();
+		mtel = $(this).val();
 		if(!mtel){
 			$(".mtelResult").html("<p>필수 정보입니다.</p>");
 		}else if(!mtel.match(patterTel)){
@@ -127,7 +127,7 @@ $(document).ready(function(){
 			$(".mbirthResult").html("<p>생년월일이 미래로 입력되었습니다.</p>");
 		}else if(mbirthYear.length >= 1 && !mbirthYear.match(patternYear)){
 			$(".mbirthResult").html("<p>생년월일 4자리를 정확하게 입력해주세요.</p>");
-		}else if(mbirthMonth.length >= 1 && !mbirthMonth.match(patternMonth)){
+		}else if(mbirthMonth.length >= 1 && !mbirthMonth.match(patternMonth) || mbirthMonth == "00"){
 			$(".mbirthResult").html("<p>태어난 월을 정확하게 입력해주세요.</p>");
 		}else if(mbirthDay.length >= 1 && !mbirthDay.match(patternDay) || mbirthDay == "00"){
 			$(".mbirthResult").html("<p>태어난 일을 정확하게 입력해주세요.</p>");
@@ -136,7 +136,7 @@ $(document).ready(function(){
 		}
 	});// mibrthDa-keyup 이벤트
 	$("#memail").keyup(function(){
-		var memail = $(this).val();
+		memail = $(this).val();
 		if(!memail){
 			$(".memailResult").html("<p>필수 정보입니다.</p>");
 		}else if(!memail.match(patternMail)){
@@ -146,41 +146,47 @@ $(document).ready(function(){
 		}
 	}); // memail-keyup 이벤트
 	$("#maddress").keyup(function(){
-		var maddress = $(this).val();
-		if(!maddress || maddress.length < 11){
+		maddress = $(this).val();
+		if(!maddress){
 			$(".maddressResult").html("<p>필수 정보입니다.</p>");
 		}else{
 			$(".maddressResult").html("");
 		}
 	}); // maddress-keyup 이벤트
 	$("form").submit(function(){
+		
 		var midResult = $(".midResult").text().trim();
-		var mpwChkResult = $(".mpwChkResult").text().trim();
+		/*
+		
 		var mnameResult = $(".mnameResult").text().trim();
 		var mtelResult = $(".mtelResult").text().trim();
 		var memailResult = $(".memailResult").text().trim();
-		var maddressResult = $(".maddressResult").text().trim();
+		var maddressResult = $(".maddressResult").text().trim();*/
+		
 		if(midResult != "사용가능한 아이디입니다."){
 			alert("사용가능한 아이디인지 확인 요망");
 			$("#mid").focus();
 			return false;
-		}else if(mpwChkResult != ""){
+		}else if(!mpw){
 			alert("비밀번호를 확인하세요.");
 			$("#mpw").focus();
 			return false;
-		}else if(mnameResult != ""){
+		}else if(!mpwChk){
+			alert("비밀번호가 맞지 않습니다.");
+			return false;
+		}else if(!mname){
 			alert("이름을 확인하세요.")
 			$("#mname").focus();
 			return false;
-		}else if(mtelResult != ""){
+		}else if(!mtel){
 			alert("전화번호를 확인하세요.");
-			$("#mtel").focsu();
+			$("#mtel").focus();
 			return false;
-		}else if(memailResult!=""){
+		}else if(!memail){
 			alert("이메일을 확인하세요.");
 			$("#memail").focus();
 			return false;
-		}else if(maddressResult != ""){
+		}else if(!maddress){
 			alert("주소를 확인하세요.");
 			$("#maddress").focus();
 			return false;

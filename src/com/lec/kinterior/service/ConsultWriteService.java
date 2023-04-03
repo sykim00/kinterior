@@ -16,6 +16,7 @@ import com.lec.kinterior.dto.ConsultantDto;
 import com.lec.kinterior.dto.MemberDto;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 public class ConsultWriteService implements Service {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
@@ -43,7 +44,7 @@ public class ConsultWriteService implements Service {
 				if(result == ConsultantDao.SUCCESS) { // 글쓰기 성공 
 					request.setAttribute("consultantWriteResult", "견적문의 감사합니다. 빠른시일내로 답변드리겠습니다.");
 				}else { // 글쓰기 실패
-					request.setAttribute("consultantWriteResult", "글쓰기 실패했습니다. 제목을 입력해주세요.");
+					request.setAttribute("consultantWriteResult", "글쓰기 실패했습니다. 제목이나 내용을 입력해주세요.");
 				}
 			}else {
 				request.setAttribute("consultantWriteResult", "회원가입한 회원만 글쓰기 가능합니다.");

@@ -17,8 +17,11 @@ a{
 	width:1000px;
 	margin:0 auto;
 	margin-top:160px;
-	margin-bottom: 100px;
 	min-width:1250px;
+    min-height: 100%;
+    position: relative;
+    height:auto;
+    padding-bottom:200px;
 }
 #notice-wrap .notice-title{
 	text-align:center;

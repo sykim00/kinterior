@@ -12,14 +12,13 @@
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 	<script>
 		$(document).ready(function(){
-			$("#ntitle").keyup(function(){
-				var ntitle = $(this).val();
-				if(!ntitle){
+			$("form").submit(function(){
+				var ntitle = $(".ntitle").val();
+				if(ntitle == ""){
 					alert("공지사항 제목을 꼭 입력해주세요.");
-					ntitle.focus();
+					$("#title").focus();
 					return false;
-				}
-			});
+			}
 		});
 	</script>
 </head>
@@ -33,15 +32,15 @@
 			<input type="hidden" name="nid" value="${noticeModify.nid }">
 				<table>
 					<tr>
-						<th><label for="ntitle">제목</label></th>
+						<th><label for="title">제목</label></th>
 						<td class="left">
-							<input type="text" name="ntitle" class="ntitle focusB" id="ntitle" value="${noticeModify.ntitle }">
+							<input type="text" name="ntitle" class="ntitle focusB" id="title" value="${noticeModify.ntitle }">
 						</td>
 					</tr>
 					<tr>
-						<th><label for="ncontent">본문</label></th>
+						<th><label for="content">본문</label></th>
 						<td>
-							<textarea name="ncontent" id="ncontent" rows="8" cols="90" class="focusB">${noticeModify.ncontent }</textarea>
+							<textarea name="ncontent" id="content" rows="8" cols="90" class="focusB">${noticeModify.ncontent }</textarea>
 						</td>
 					</tr>
 					<tr>

@@ -13,11 +13,11 @@ li{
 	list-style: none;
 }
 #content-form{
-	margin-top:130px;
+	padding-top:200px;
 	margin-bottom:60px;
 	min-width:1250px;
 	background:#fff;
-	height:400px;
+	min-height:100%;	
 }
 #content-form .login-title{
 	text-align:center;
@@ -52,6 +52,7 @@ li{
 	color:#333;
 	box-sizing: border-box;
 	outline:none;
+	box-shadow:0 0 0 0;
 	-webkit-box-shadow: 0 0 0 1000px #fff inset;
 }
 #content-form .login-wrap table tr td .mLoginErrorMsg p{

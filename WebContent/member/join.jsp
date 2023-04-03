@@ -26,35 +26,35 @@
 						<tr>
 							<th><label for="mid">아이디<span class="point">*</span></label></th>
 							<td>
-								<input type="text" name="mid" id="mid" class="mid focusB" placeholder="아이디를 입력해주세요.">
+								<input type="text" name="mid" id="mid" class="focusB" placeholder="아이디를 입력해주세요.">
 								<div class="midResult bottom"></div>
 							</td>
 						</tr>
 						<tr>
 							<th><label for="mpw">비밀번호<span class="point">*</span></label></th>
 							<td>
-								<input type="password" name="mpw" id="mpw" class="mpw focusB" placeholder="비밀번호를 입력해주세요.">
+								<input type="password" name="mpw" id="mpw" class="focusB" placeholder="비밀번호를 입력해주세요.">
 								<div class="mpwResult bottom"></div>
 							</td>
 						</tr>
 						<tr>
 							<th><label for="mpwChk">비밀번호확인<span class="point">*</span></label></th>
 							<td>
-								<input type="password" name="mpwChk" id="mpwChk" class="mpwChk focusB" placeholder="비밀번호를 다시 한번 입력해주세요.">
+								<input type="password" name="mpwChk" id="mpwChk" class="focusB" placeholder="비밀번호를 다시 한번 입력해주세요.">
 								<div class="mpwChkResult bottom"></div>
 							</td>
 						</tr>
 						<tr>
 							<th><label for="mname">이름<span class="point">*</span></label></th>
 							<td>
-								<input type="text" name="mname" id="mname" class="mname focusB" placeholder="이름을 입력해주세요.">
+								<input type="text" name="mname" id="mname" class="focusB" placeholder="이름을 입력해주세요.">
 								<div class="mnameResult bottom"></div>
 							</td>
 						</tr>
 						<tr>
 							<th><label for="mtel">전화번호<span class="point">*</span></label></th>
 							<td>
-								<input type="text" name="mtel" id="mtel" class="mtel focusB" placeholder="예 : 02-000-0000 또는 010-0000-0000">
+								<input type="text" name="mtel" id="mtel" class="focusB" placeholder="예 : 02-000-0000 또는 010-0000-0000">
 								<div class="mtelResult bottom"></div>
 							</td>
 						</tr>
@@ -74,7 +74,7 @@
 						<tr>
 							<th><label for="memail">이메일<span class="point">*</span></label></th>
 							<td>
-								<input type="text" name="memail" id="memail" class="memail focusB" placeholder="예 : kinterior@interior.com">
+								<input type="text" name="memail" id="memail" class="focusB" placeholder="예 : kinterior@interior.com">
 								<div class="memailResult bottom"></div>
 							</td>
 						</tr>
@@ -89,7 +89,7 @@
 						<tr>
 							<th><label for="maddress">주소<span class="point">*</span></label></th>
 							<td>
-								<input type="text" name="maddress" id="maddress" class="maddress focusB" placeholder="주소를 입력해주세요.">
+								<input type="text" name="maddress" id="maddress" class="focusB" placeholder="주소를 입력해주세요.">
 								<div class="maddressResult bottom"></div>
 							</td>
 						</tr>

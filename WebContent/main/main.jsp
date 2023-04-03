@@ -16,7 +16,7 @@
 	<script src="${conPath }/js/jquery.flexslider.js"></script>
 </head>
 <body>
-	<c:if test="${not empty next }">
+	<c:if test="${not empty next}">
 		<script>
 			location.href="${conPath}/${next}";
 		</script>
@@ -36,6 +36,11 @@
 	<c:if test="${not empty mModifySuccess }">
 		<script>
 			alert("${mModifySuccess}");
+		</script>
+	</c:if>
+	<c:if test="${not empty withdrawalResult }">
+		<script>
+			alert("${withdrawalResult}");
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp"/>

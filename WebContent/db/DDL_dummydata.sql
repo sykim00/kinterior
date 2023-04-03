@@ -81,17 +81,15 @@ INSERT INTO CONSULTANT (cID, mID, aID, cTITLE, cCONTENT, cFILENAME, cGROUP, cSTE
     VALUES (CONSULTANT_SEQ.NEXTVAL,'fff', null, '애견카페 견적문의 드립니다.', '글 본문입니다.', null, CONSULTANT_SEQ.CURRVAL, 0, 0, '436.124.5.18');
 INSERT INTO CONSULTANT (cID, mID, aID, cTITLE, cCONTENT, cFILENAME, cGROUP, cSTEP, cINDENT, cIP)
     VALUES (CONSULTANT_SEQ.NEXTVAL,'ggg', null, '팝업스토어 견적문의 드립니다.', '글 본문입니다.', null, CONSULTANT_SEQ.CURRVAL, 0, 0, '127.235.7.89');
-
 -- 3번글의 답변달기
 INSERT INTO CONSULTANT (cID, mID, aID, cTITLE, cCONTENT, cFILENAME, cGROUP, cSTEP, cINDENT, cIP)
     VALUES (CONSULTANT_SEQ.NEXTVAL, null, 'admin', '푸드코드설계 답변글입니다.', '글 본문입니다.', null, 3, 1, 1, '185.854.3.13');
 INSERT INTO CONSULTANT (cID, mID, aID, cTITLE, cCONTENT, cFILENAME, cGROUP, cSTEP, cINDENT, cIP)
     VALUES (CONSULTANT_SEQ.NEXTVAL, 'ccc', null, '푸드코드설계 답의 답변글입니다.', '글 본문입니다.', '3.xlsx', 3, 2, 2, '185.854.3.13');
-
 -- 2번글의 답변달기
 INSERT INTO CONSULTANT (cID, mID, aID, cTITLE, cCONTENT, cFILENAME, cGROUP, cSTEP, cINDENT, cIP)
-    VALUES (CONSULTANT_SEQ.NEXTVAL, null, 'admin', '전시공간 견적문의 답변드립니다.', '글 본문입니다.', null, 2, 1, 1, '192.168.0.05');  
-
+    VALUES (CONSULTANT_SEQ.NEXTVAL, null, 'admin', '전시공간 견적문의 답변글입니다.', '글 본문입니다.', '3.xlsx', 2, 1, 1, '185.854.3.13');
+SELECT * FROM CONSULTANT;
 SELECT * FROM CONSULTANT ORDER BY cGROUP, cSTEP;
 --------------------------------- REVIEW_BOARD ---------------------------------
 
@@ -129,7 +127,7 @@ CREATE TABLE INTERIOR_PRODUCT (
     pID NUMBER(6) PRIMARY KEY,
     aID VARCHAR2(100) NOT NULL,
     pTITLE VARCHAR2(250) NOT NULL,
-    pCONTENT VARCHAR2(4000) NOT NULL,
+    pCONTENT CLOB,
     pFILENAME VARCHAR2(100) NOT NULL,
     pRDATE DATE DEFAULT SYSDATE,
     FOREIGN KEY (aID) REFERENCES ADMIN (aID)

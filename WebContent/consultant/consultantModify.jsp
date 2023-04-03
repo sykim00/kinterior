@@ -8,15 +8,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>견적문의 게시판 글쓰기</title>
+	<link href="${conPath }/css/font.css" rel="stylesheet" type="text/css">
 	<link href="${conPath }/css/consultantWrite.css" rel="stylesheet" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 	<script>
 		$(document).ready(function(){
-			$("#ctitle").keyup(function(){
-				var ctitle = $(this).val();
-				if(!ctitle){
-					alert("견적문의제목을 꼭 입력해주세요.");
-					ctitle.focus();
+			$("form").submit(function(){
+				var ctitle = $(".ctitle").val();
+				if(ctitle == ""){
+					alert("견적문의 제목을 꼭 입력해주세요.");
+					$("#title").focus();
 					return false;
 				}
 			});
@@ -46,15 +47,15 @@
 			<input type="hidden" name="dbcfilename" value="${conBoard.cfilename }">
 				<table>
 					<tr>
-						<td><label for="ctitle">견적문의제목</label></td>
+						<td><label for="title">견적문의제목</label></td>
 						<td class="ctitle-left">
-							<input type="text" name="ctitle" class="ctitle focusB" id="ctitle" value="${conBoard.ctitle }">
+							<input type="text" name="ctitle" class="ctitle focusB" id="title" value="${conBoard.ctitle }">
 						</td>
 					</tr>
 					<tr>
-						<td><label for="ccontent">요청사항</label></td>
+						<td><label for="content">요청사항</label></td>
 						<td>
-							<textarea name="ccontent" id="ccontent" rows="8" cols="90">${conBoard.ccontent }</textarea>
+							<pre><textarea name="ccontent" id="content" rows="12" cols="90">${conBoard.ccontent }</textarea></pre>
 						</td>
 					</tr>
 					<tr>
@@ -70,7 +71,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td colspan="2" style="text-align:center">
 							<button type="submit" class="btnStyle">수정</button>
 							<button type="reset" class="btnStyle btn2" onclick="history.back()">이전</button>
 							<button type="button" class="btnStyle btn2" onclick="location.href='${conPath}/consultList.do?pageNum=${param.pageNum }'">목록</button>

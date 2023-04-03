@@ -13,15 +13,20 @@
 	<script>
 		$(document).ready(function(){
 			$("tr").click(function(){
-				var nid = Number($(this).children().eq(0).text());
-				if(!isNaN(nid)){
-					location.href="${conPath}/noticeContent.do?nid="+nid+"&pageNum=${pageNum}";
+				var rid = Number($(this).children().eq(0).text());
+				if(!isNaN(rid)){
+					location.href="${conPath}/rboardContent.do?rid="+rid+"&pageNum=${pageNum}";
 				}
 			})
 		});
 	</script>
 </head>
 <body>
+	<c:if test="${not empty ReviewWriteResult }">
+		<script>
+			alert("${ReviewWriteResult}");
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="review-wrap">
 		<div class="review-top">
@@ -29,12 +34,16 @@
 		</div>
 		<div class="review-content">
 			<table>
+				<tr style="display:none;">
+					<td>글번호</td>
+				</tr>
 				<c:if test="${reviewTotCnt eq 0 }">
 					<tr><td>등록된 글이 없습니다.</td></tr>
 				</c:if>
 				<c:if test="${reviewTotCnt != 0 }">
 				<c:forEach var="review" items="${reviewList }">
 					<tr>
+						<td style="display:none;">${review.rid }</td>
 						<td colspan="2">
 							<div class="review-row">
 								<div class="review-left">
@@ -43,7 +52,7 @@
 									</div>
 									<div class="rcontent">${review.rcontent }</div>
 									<div class="rname">
-										${review.mname } | <fmt:formatDate value="${review.rdate }" type="date" pattern="yyyy.MM.dd"/>
+										${review.mname } | <fmt:formatDate value="${review.rdate }" type="date" pattern="yyyy.MM.dd"/> | 조회수 : ${review.rhit }
 									</div>
 								</div>
 								<div class="rphoto">
@@ -71,7 +80,7 @@
 						<a href="${conPath }/rboardList.do?pageNum=${i}" class="move">${i }</a>
 					</c:if>
 				</c:forEach>
-				<c:if test="${endPage < nTotPageCnt }">
+				<c:if test="${endPage < pageTotCnt }">
 					<a href="${conPath }/rboardList.do?pageNum=${endPage+1}" class="next"></a>
 				</c:if>
 				<c:if test="${pageTotCnt eq endPage}">

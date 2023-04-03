@@ -22,7 +22,6 @@
 	</script>
 </head>
 <body>
-	${readOk }
 	<c:set var="consults" value="${consultantContent }"/>
 	<c:if test="${readOk != 'success' }">
 		<script>
@@ -73,7 +72,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2">
+					<td colspan="2" style="text-align:center;">
 						<c:if test="${member.mid eq  consults.mid || admin.aid eq consults.aid}">
 							<button type="button" class="btn2" onclick="location.href='${conPath}/consultModifyView.do?cid=${consults.cid}&pageNum=${param.pageNum }'">수정</button>
 							<button type="reset" class="btn2" onclick="location.href='${conPath}/consultDelete.do?cgroup=${consults.cgroup }&cstep=${consults.cstep }&cindent=${consults.cindent }&pageNum=${param.pageNum }'">삭제</button>													

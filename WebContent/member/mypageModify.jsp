@@ -26,8 +26,9 @@
 	const patternMail = /^\w+@\w+(\.\w+){1,2}$/; // 이메일 정규표현식
 	var today = new Date();
 	var yearNow = today.getFullYear(); // 올해 년도
-	$(".oldmpw").keyup(function(){
-		var oldmpw = $(this).val();
+	var oldmpw, mpw, mtel, memail, maddress;
+	$("#oldmpw").keyup(function(){
+		oldmpw = $(this).val();
 		if(!oldmpw){
 			$(".oldmpwResult").html("<p>필수 정보입니다.</p>");
 		}/*else if(!oldmpw.match(patternPw)){
@@ -36,16 +37,16 @@
 			$(".oldmpwResult").html("");
 		};
 	}); //mpwChk-keyup 이벤트
-	$(".mpw").keyup(function(){
-		var mpw = $(this).val();
+	$("#mpw").keyup(function(){
+		mpw = $(this).val();
 		if(mpw.length > 1 && !mpw.match(patternPw)){
 			$(".mpwResult").html("<p>8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</p>");
 		}else{
 			$(".mpwResult").html("");
 		};
 	}); //mpw-keyup 이벤트
-	$(".mtel").keyup(function(){
-		var mtel = $(this).val();
+	$("#mtel").keyup(function(){
+		mtel = $(this).val();
 		if(!mtel){
 			$(".mtelResult").html("<p>필수 정보입니다.</p>");
 		}else if(!mtel.match(patterTel)){
@@ -70,8 +71,8 @@
 			$(".mbirthResult").html("");
 		}
 	});// mibrthDa-keyup 이벤트
-	$(".memail").keyup(function(){
-		var memail = $(this).val();
+	$("#memail").keyup(function(){
+		memail = $(this).val();
 		if(!memail){
 			$(".memailResult").html("<p>필수 정보입니다.</p>");
 		}else if(!memail.match(patternMail)){
@@ -80,8 +81,8 @@
 			$(".memailResult").html("");
 		}
 	}); // memail-keyup 이벤트
-	$(".maddress").keyup(function(){
-		var maddress = $(this).val();
+	$("#maddress").keyup(function(){
+		maddress = $(this).val();
 		if(!maddress || maddress.length < 11){
 			$(".maddressResult").html("<p>필수 정보입니다.</p>");
 		}else{
@@ -89,28 +90,25 @@
 		}
 	}); // maddress-keyup 이벤트
 	$("form").submit(function(){
-		var oldmpw = $(".oldmpw").val();
-		var mtelResult = $(".mtelResult").text().trim();
-		var memailResult = $(".memailResult").text().trim();
-		var maddressResult = $(".maddressResult").text().trim();
-		if(oldmpw != "${member.mpw}"){
+		if(!oldmpw){
+			alert("현 비밀번호를 꼭 입력하세요.");
+			$("#oldmpw").focus();
+			return false;
+		}else if(oldmpw != '${member.mpw}'){
 			alert("현 비밀번호를 확인하세요.");
-			$(".oldmpw").focus();
-			return false;
-		}else if(mtelResult != ""){
-			alert("전화번호를 확인하세요.");
-			$("#mtel").focsu();
-			return false;
-		}else if(memailResult!=""){
-			alert("이메일을 확인하세요.");
-			$("#memail").focus();
-			return false;
-		}else if(maddressResult != ""){
-			alert("주소를 확인하세요.");
-			$("#maddress").focus();
+			$("#oldmpw").focus();
 			return false;
 		}
 	}); // submit 제한
+	$("button[type=button]").click(function(){
+		if(!oldmpw){
+			alert("현 비밀번호를 꼭 입력하세요.");
+			$("#oldmpw").focus();
+			return false;
+		}else{
+			location.href='${conPath}/withdrawal.do';
+		}
+	});
 });
 	</script>
 </head>
@@ -165,11 +163,11 @@
 							<th><label>생년월일</label></th>
 							<td class="mbirth-line">
 								<div>
-									<input type="text" name="mbirthYear" class="mbirthYear mbirth" placeholder="YYYY" maxlength='4'>
+									<input type="text" name="mbirthYear" class="mbirthYear mbirth" placeholder="YYYY" maxlength='4' value="${mbirthYear }">
 									<span class="mbirth-slash"></span>
-									<input type="text" name="mbirthMonth" class="mbirthMonth mbirth" placeholder="MM" maxlength='2'>
+									<input type="text" name="mbirthMonth" class="mbirthMonth mbirth" placeholder="MM" maxlength='2' value="${mbirthMonth }">
 									<span class="mbirth-slash"></span>
-									<input type="text" name="mbirthDay" class="mbirthDay mbirth" placeholder="DD" maxlength='2'>
+									<input type="text" name="mbirthDay" class="mbirthDay mbirth" placeholder="DD" maxlength='2' value="${mbirthDay }">
 								</div>
 								<div class="mbirthResult bottom" style="clear:both;padding:0;"></div>
 							</td>
@@ -184,9 +182,9 @@
 						<tr>
 							<th>성별</th>
 							<td class="mgender-line">
-								<input type="radio" name="mgender" value="m" id="mgender-m" class="radio_btn"><label for="mgender-m">남자</label>		
-								<input type="radio" name="mgender" value="f" id="mgender-f" class="radio_btn"><label for="mgender-f">여자</label>
-								<input type="radio" name="mgender" value="n" id="mgender-n" class="radio_btn"><label for="mgender-n">선택안함</label>
+								<input type="radio" name="mgender" value="m" id="mgender-m" class="radio_btn" <c:if test="${member.mgender eq 'm'}">checked</c:if> ><label for="mgender-m">남자</label>		
+								<input type="radio" name="mgender" value="f" id="mgender-f" class="radio_btn" <c:if test="${member.mgender eq 'f'}">checked</c:if> ><label for="mgender-f">여자</label>
+								<input type="radio" name="mgender" value="n" id="mgender-n" class="radio_btn" <c:if test="${member.mgender eq 'n'}">checked</c:if> ><label for="mgender-n">선택안함</label>
 							</td>
 						</tr>
 						<tr>
@@ -198,7 +196,7 @@
 						</tr>
 						<tr>
 							<td colspan="3">
-								<button type="button" class="btnStyle2" onclick="${conPath}/withdrawal.do">탈퇴하기</button>
+								<button type="button" class="btnStyle2">탈퇴하기</button>
 								<button type="submit" class="btnStyle2">회원정보수정</button>
 							</td>
 						</tr>

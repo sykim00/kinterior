@@ -10,11 +10,11 @@ public class ConsultDeleteService implements Service {
 		int cstep = Integer.parseInt(request.getParameter("cstep"));
 		int cindent = Integer.parseInt(request.getParameter("cindent"));
 		ConsultantDao cDao = ConsultantDao.getInstance();
-		int result = cDao.deleteConsultant(cgroup, cstep, cindent);
-		if(result == ConsultantDao.SUCCESS) {
-			request.setAttribute("consultResult", "작성하신 글이 삭제되었습니다.");
+		int deleteCnt = cDao.deleteConsultant(cgroup, cstep, cindent);
+		if(deleteCnt >= ConsultantDao.SUCCESS) {
+			request.setAttribute("consultResult", "작성하신 글" + deleteCnt +"개 삭제되었습니다.");
 		}else {
-			request.setAttribute("consultResult", "작성하신 글이 삭제되지 않았습니다.");
+			request.setAttribute("consultResult", "작성하신 글이 모두 삭제되지 않았습니다.");
 		}
 	}
 }
